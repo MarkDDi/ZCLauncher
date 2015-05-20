@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffffff</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="gray">#ffb0b0b0</color>
+    <color name="orange">#ffff8a00</color>
+    <color name="teleplay_orange">#ffff8902</color>
+    <color name="version_update_dialog_bg_transparent">#cc000000</color>
+    <color name="white_bg">#ffffffff</color>
+    <color name="grey_bg">#fff6f6f6</color>
+    <color name="whitetext">#ffffffff</color>
+    <color name="blacktext">#ff333333</color>
+    <color name="darktext">#ff666666</color>
+    <color name="greytext">#ff999999</color>
+    <color name="greendarktext">#ff3ba867</color>
+    <color name="greenlighttext">#ff90ee90</color>
+    <color name="line_split0">#ffcdcdcd</color>
+    <color name="line_split_details">#ffefefef</color>
+    <color name="setting_backgroup">#fff5faf9</color>
+    <color name="check_color">#ffeeeeee</color>
+    <color name="option_backgroup">#fff6f6f4</color>
+    <color name="translucent_background">#60000000</color>
+    <color name="item_action_bg">#90000000</color>
+    <color name="black">#ff000000</color>
+    <color name="green">#ff99cc00</color>
+    <color name="red">#ffff0000</color>
+    <color name="yellow">#ffffe890</color>
+    <color name="trans">#00000000</color>
+    <color name="blue">#ff0000ff</color>
+    <color name="alphaBlack">#01010101</color>
+    <color name="brown">#ffa52a2a</color>
+    <color name="gray1">#ff3d3d3d</color>
+    <color name="gray2">#ff4d4d4d</color>
+    <color name="gray3">#ff8c8c8c</color>
+    <color name="gray4">#ffd9d9d9</color>
+    <color name="gray5">#ffe5e5e5</color>
+    <color name="graylight">#ffcccccc</color>
+    <color name="burlywood">#ffdeb887</color>
+    <color name="goldenrod">#ffdaa520</color>
+    <color name="eggshell">#fffce6c9</color>
+    <color name="feed_grey_bg">#ffededed</color>
+    <color name="grey">#ff999999</color>
+    <color name="blue_name">#ff0483d0</color>
+    <color name="black_name">#ff000000</color>
+    <color name="green_number">#ff63ad4c</color>
+    <color name="feed_bottom_gray_text">#ff8a8a8a</color>
+    <color name="star_detail_tag">#ffaaaaaa</color>
+    <color name="feed_bottom_gray_text_2">#ff4b5a71</color>
+    <color name="darker_gray">#ffaaaaaa</color>
+    <color name="user_text_color">#ff1874cd</color>
+    <color name="rt_comment_color">#ff4b919e</color>
+    <color name="item_color">#ff7d899d</color>
+    <color name="default_gray">#fff2f2f2</color>
+    <color name="common_item_text_color">#ffefeeee</color>
+    <color name="keyboard_text_color">#ffb5b5b5</color>
+    <color name="app_store_grey_color">#ffa9a9a9</color>
+    <color name="progressbar_download_color">#ffff8a00</color>
+
+    <color name="app_store_top_color">#ffffffff</color>
+
+    <color name="app_store_orange_color">#ffff8b00</color>
+
+</resources>

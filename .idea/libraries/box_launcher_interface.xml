@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="box_launcher_interface">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/box_launcher_interface.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

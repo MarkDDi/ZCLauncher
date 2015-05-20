@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World</string>
+    <string name="app_name">WordInside launcher</string>
+    <string name="hlw">葫芦娃大战变形金</string>
+    <string name="sub_navigation_home_app_install_text">已安装应用</string>
+    <string name="sub_navigation_home_setting_text">系统设置</string>
+    <string name="sub_navigation_home_external_text">外接存储</string>
+    <string name="no_resource">此功能暂没开放！</string>
+    <string name="str_day">日</string>
+    <string name="navigation_tab_game_text">游戏</string>
+    <string name="navigation_tab_education_text">教育</string>
+    <string name="navigation_tab_health_text">健康</string>    
+    <string name="navigation_tab_recommend_text">推荐</string>
+    <string name="navigation_tab_movie_text">影视</string>
+    <string name="navigation_tab_app_text">应用</string>
+    <string name="app_detail_name">%s</string>
+    <string name="app_detail_type">分类 : %s</string>
+    <string name="app_detail_appid">应用ID : %s</string>
+    <string name="app_detail_params">参数 : %s</string>
+    <string name="app_detail_version">版本: %s</string>
+    <string name="app_detail_size">大小 : %s</string>    
+    <string name="app_detail_update">更新 : %s</string>
+    <string name="app_detail_author">开发者 : %s</string>
+    <string name="app_detail_line">|</string>
+    <string name="app_detail_new_version">最新版本 : %s</string>
+    <string name="app_detail_new_version_date">更新 : %s</string>
+    <string name="app_detail_install">应用安装状态： %s</string>
+    <string name="app_detail_intro_info"> 应用详情 : %s</string>
+    <string name="unable_start">不能打开该应用</string>
+    <string name="setup_fail">安装失败，请稍后再试</string>
+    <string name="setup_success">安装成功</string>
+    <string name="no_more_content">暂无更多内容，谢谢！</string>   
+    <string name="bnt_center_text">个人中心</string> 
+    <string name="error_net">网络异常！</string> 
+     <string name="app_install_success">应用已经安装成功！</string> 
+    <string name="app_installing">应用正在安装，请稍后！</string> 
+    <string name="app_install_erro">应用安装失败，请从试！</string> 
+    <string name="app_download_error">下载失败，请稍后从试...</string>
+    <string name="download_busy">有任务正在下载，请稍后再试...</string>
+    <string name="launcher_new_version">检测到Launcher有新版本</string>
+   <string name="update_time">更新时间：%s</string>  
+  <string name="update_detail_intro_info"> 更新详情 : %s</string>            
+</resources>
