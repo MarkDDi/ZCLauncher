@@ -1,6 +1,8 @@
 package com.word.wordinsidehome.view;
 
 import java.util.*;
+
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,7 +25,7 @@ import android.text.*;
 import android.text.method.*;
 import android.graphics.Color;
 import com.word.wordinsidehome.service.entity.*;
-import com.word.wordinsidehome.image.*;
+import com.word.wordinsidehome.service.image.*;
 import com.word.wordinsidehome.R;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -124,6 +126,7 @@ abstract public class MyDialog {
 	IconsEntity myiconInfo;
 	ProgressBar app_down_progBar;
 	private AppBroadcastReceiver appBroadcastReceiver;
+	@SuppressLint("NewApi")
 	public MyDialog(Context context,IconsEntity iconInfo ,String type) {
 		    
 		mContext = context;

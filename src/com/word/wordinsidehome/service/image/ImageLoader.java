@@ -123,7 +123,7 @@ private Drawable  loadImageFromUrl(String uri){
 
   private Uri getImageFileInDiscCache(Context mContext, String uri,boolean isRefleshData) {
     	Uri imgUrl = null;
-  	 File imgCacheDir = StorageUtils.getCacheDirectory(mContext,true);
+  	 File imgCacheDir = StorageUtils.getCacheDirectory(mContext, true);
   	 String imgName =  MD5Utils.getMD5String(uri);
 	 Log.d(TAG," imgName_Md5 =  "+imgName);   
   	 File currentImgFile = new File(imgCacheDir, imgName);

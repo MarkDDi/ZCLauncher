@@ -1,4 +1,4 @@
-package com.word.wordinsidehome.image;
+package com.word.wordinsidehome.service.image;
 
 import android.content.Context;
 import android.os.Environment;

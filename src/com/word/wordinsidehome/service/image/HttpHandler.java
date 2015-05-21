@@ -1,4 +1,5 @@
-package com.word.wordinsidehome.image;
+package com.word.wordinsidehome.service.image;
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.util.Log;
@@ -14,6 +15,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.protocol.HttpContext;
 
+@SuppressLint("NewApi")
 public class HttpHandler extends AsyncTask implements EntityCallBack {
     private static final String TAG = "HttpHandler";
     private static final int UPDATE_FAILURE = 3;

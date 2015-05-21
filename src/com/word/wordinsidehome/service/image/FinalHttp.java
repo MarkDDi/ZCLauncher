@@ -1,4 +1,4 @@
-package com.word.wordinsidehome.image;
+package com.word.wordinsidehome.service.image;
 
 import java.io.IOException;
 import java.io.InputStream;

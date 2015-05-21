@@ -13,7 +13,7 @@ import java.util.List;
 import android.widget.Toast;
 import com.word.wordinsidehome.utils.*;
 import com.word.wordinsidehome.common.DownloadManager;
-import com.word.wordinsidehome.image.*;
+import com.word.wordinsidehome.service.image.*;
 import android.view.*;
 import com.word.wordinsidehome.service.entity.*;
 

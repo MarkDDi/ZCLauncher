@@ -14,7 +14,7 @@ import com.winside.launcher.service.impl.*;
 import com.word.wordinsidehome.service.entity.*;
 import com.word.wordinsidehome.service.dao.*;
 import com.word.wordinsidehome.utils.*;
-import com.word.wordinsidehome.image.AppDownloadThread;
+import com.word.wordinsidehome.service.image.AppDownloadThread;
 
 
 public class LoadService extends IntentService {

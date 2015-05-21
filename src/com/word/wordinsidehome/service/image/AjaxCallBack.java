@@ -1,4 +1,4 @@
-package com.word.wordinsidehome.image;
+package com.word.wordinsidehome.service.image;
 
 public abstract class AjaxCallBack {
     private boolean progress;

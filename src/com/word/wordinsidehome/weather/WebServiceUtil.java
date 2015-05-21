@@ -1,19 +1,6 @@
 package com.word.wordinsidehome.weather;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import android.util.Log;
-import android.util.Xml;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List; 
-import org.xmlpull.v1.XmlPullParser; 
-import android.os.Handler;
-import android.os.Message;
 
 
 

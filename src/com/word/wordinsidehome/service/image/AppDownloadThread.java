@@ -1,4 +1,4 @@
-package com.word.wordinsidehome.image;
+package com.word.wordinsidehome.service.image;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +26,7 @@ public class AppDownloadThread {
         this.progress = 0;
         this.tIcons = iconsInfo;
         this.flag = false;
-        this.target = FileLoadUtils.getExternalStorageAbsolutePath("dowloadapk.apk",context);
+        this.target = FileLoadUtils.getExternalStorageAbsolutePath("dowloadapk.apk", context);
                 Log.i(TAG,  "downLoad url == " + this.target);
     }
 
@@ -72,7 +72,7 @@ public class AppDownloadThread {
             this.beginDownloadProgressBroadcast();
 			AppStoreApplication.sendDownloadStartAppaction(AppDownloadThread.this.tIcons);			
             ++DownloadManager.currentDownloadSize;
-            this.handler = new FinalHttp().download(iconEntry.get_apk(), 
+            this.handler = new FinalHttp().download(iconEntry.get_apk(),
                     this.target, true, new AjaxCallBack() {
                 public void onFailure(Throwable t, int errorNo, String strMsg) {
                     super.onFailure(t, errorNo, strMsg);

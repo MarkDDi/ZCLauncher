@@ -1,8 +1,8 @@
 package com.word.wordinsidehome.common;
 
-import com.word.wordinsidehome.image.AppDownloadThread;
 import java.util.HashMap;
 import java.util.Iterator;
+import com.word.wordinsidehome.service.image.AppDownloadThread;
 
 public class DownloadManager {
     public static final int DOWNLAOD_SIZE = 3;

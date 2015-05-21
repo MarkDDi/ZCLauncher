@@ -1,6 +1,9 @@
 package com.word.wordinsidehome.customview;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -70,6 +73,7 @@ public class NavigationTabView extends RelativeLayout {
 
 
 
+    @SuppressLint("NewApi")
     public void clearCursorAnimation() {
         if(this.cursorImageViewAnimator != null) {
             this.cursorImageViewAnimator.end();
@@ -77,6 +81,7 @@ public class NavigationTabView extends RelativeLayout {
         }
     }
 
+    @SuppressLint("NewApi")
     private void init() {
         this.addView(NavigationTabView.inflate(this.getContext(), R.layout.top_navigation_tab_view, null), new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
@@ -285,6 +290,7 @@ public class NavigationTabView extends RelativeLayout {
         });
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void scrollCursor(int preIndex, int currentIndex, int pageCount) {
         float[] v4;
         ImageView v2;

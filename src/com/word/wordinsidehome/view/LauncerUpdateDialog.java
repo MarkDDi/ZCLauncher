@@ -1,5 +1,6 @@
 package com.word.wordinsidehome.view;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,7 +13,7 @@ import android.widget.*;
 import android.content.*;
 
 import com.word.wordinsidehome.service.entity.*;
-import com.word.wordinsidehome.image.*;
+import com.word.wordinsidehome.service.image.*;
 import com.word.wordinsidehome.R;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -126,6 +127,7 @@ class AppBroadcastReceiver extends BroadcastReceiver {
 		typeHolder = type;
 
 	}
+	@SuppressLint("NewApi")
 	public void show(){
 			if(mDialog != null&&mDialog.isShowing()){
 				return;
