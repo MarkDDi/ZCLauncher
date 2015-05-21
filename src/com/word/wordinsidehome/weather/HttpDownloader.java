@@ -15,11 +15,11 @@ import java.io.FileReader;
 public class HttpDownloader {
 
 	/**
-	 * ¸ù¾İURLÏÂÔØÎÄ¼ş£¬Ç°ÌáÊÇÕâ¸öÎÄ¼şµ±ÖĞµÄÄÚÈİÊÇÎÄ±¾£¬º¯ÊıµÄ·µ»ØÖµ¾ÍÊÇÎÄ¼şµ±ÖĞµÄÄÚÈİ
-	 * 1.´´½¨Ò»¸öURL¶ÔÏó
-	 * 2.Í¨¹ıURL¶ÔÏó£¬´´½¨Ò»¸öHttpURLConnection¶ÔÏó
-	 * 3.µÃµ½InputStram
-	 * 4.´ÓInputStreamµ±ÖĞ¶ÁÈ¡Êı¾İ
+	 * æ ¹æ®URLä¸‹è½½æ–‡ä»¶ï¼Œå‰ææ˜¯è¿™ä¸ªæ–‡ä»¶å½“ä¸­çš„å†…å®¹æ˜¯æ–‡æœ¬ï¼Œå‡½æ•°çš„è¿”å›å€¼å°±æ˜¯æ–‡ä»¶å½“ä¸­çš„å†…å®¹
+	 * 1.åˆ›å»ºä¸€ä¸ªURLå¯¹è±¡
+	 * 2.é€šè¿‡URLå¯¹è±¡ï¼Œåˆ›å»ºä¸€ä¸ªHttpURLConnectionå¯¹è±¡
+	 * 3.å¾—åˆ°InputStram
+	 * 4.ä»InputStreamå½“ä¸­è¯»å–æ•°æ®
 	 * @param urlStr
 	 * @return
 	 */
@@ -36,12 +36,12 @@ public class HttpDownloader {
 		String line = null;
 		BufferedReader buffer = null;
 		try {
-			// ´´½¨Ò»¸öURL¶ÔÏó
+			// åˆ›å»ºä¸€ä¸ªURLå¯¹è±¡
 			URL url = new URL(urlStr);
-			// ´´½¨Ò»¸öHttpÁ¬½Ó
+			// åˆ›å»ºä¸€ä¸ªHttpè¿æ¥
 			HttpURLConnection urlConn = (HttpURLConnection) url
 					.openConnection();
-			// Ê¹ÓÃIOÁ÷¶ÁÈ¡Êı¾İ
+			// ä½¿ç”¨IOæµè¯»å–æ•°æ®
 			buffer = new BufferedReader(new InputStreamReader(urlConn
 					.getInputStream()));
 			while ((line = buffer.readLine()) != null) {

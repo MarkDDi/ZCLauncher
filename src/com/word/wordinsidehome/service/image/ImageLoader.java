@@ -65,7 +65,8 @@ public class ImageLoader {
     }	
   private static final Executor   executor = Executors.newFixedThreadPool(10); ;    
   
- public void download(String url, ImageView  imageView,boolean isRefleshData) {  
+ @SuppressLint("NewApi")
+ public void download(String url, ImageView  imageView,boolean isRefleshData) {
 	 
         BitmapDownloaderTask task = new BitmapDownloaderTask(imageView,isRefleshData);   
        // task.execute(url);   

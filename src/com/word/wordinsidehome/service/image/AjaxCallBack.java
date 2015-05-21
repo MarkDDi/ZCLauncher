@@ -7,7 +7,7 @@ public abstract class AjaxCallBack {
     public AjaxCallBack() {
         super();
         this.progress = true;
-        this.rate = 0x3E8;
+        this.rate = 0x3E8; // 1000
     }
 
     public int getRate() {

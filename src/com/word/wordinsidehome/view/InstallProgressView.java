@@ -42,7 +42,7 @@ public class InstallProgressView extends View {
 
     public void setVisibility(int visibility) {
         super.setVisibility(visibility);
-        if(visibility == 0) {
+        if(visibility == VISIBLE) {
             this.mAnimationDrawable.start();
         }
         else {

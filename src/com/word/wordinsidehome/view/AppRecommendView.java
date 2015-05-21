@@ -1,5 +1,6 @@
 package com.word.wordinsidehome.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -29,6 +30,7 @@ public class AppRecommendView extends LinearLayout {
         this.isUpdateProgress = true;
     }
 
+    @SuppressLint("NewApi")
     public AppRecommendView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         this.isUpdateProgress = true;
@@ -53,8 +55,8 @@ public class AppRecommendView extends LinearLayout {
 
     public void startDownloadAnim() {
 
-        if(this.appDownloadIcon.getVisibility() != 0) {
-            this.appDownloadIcon.setVisibility(0);
+        if(this.appDownloadIcon.getVisibility() != VISIBLE) {
+            this.appDownloadIcon.setVisibility(VISIBLE);
         }
 
        AnimationDrawable anim = (AnimationDrawable)appDownloadIcon.getBackground();
@@ -64,8 +66,8 @@ public class AppRecommendView extends LinearLayout {
     }
     public void stopDownloadAnim() {
 
-        if(this.appDownloadIcon.getVisibility() == 0) {
-            this.appDownloadIcon.setVisibility(4);
+        if(this.appDownloadIcon.getVisibility() == VISIBLE) {
+            this.appDownloadIcon.setVisibility(INVISIBLE);
         }
 
        AnimationDrawable anim = (AnimationDrawable)appDownloadIcon.getBackground();

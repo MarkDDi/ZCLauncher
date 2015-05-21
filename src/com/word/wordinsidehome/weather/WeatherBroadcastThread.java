@@ -1,26 +1,20 @@
 package com.word.wordinsidehome.weather;
 
-import java.util.TimerTask;
-
-import android.app.SystemWriteManager;
+//import android.app.SystemWriteManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject; 
-import com.word.wordinsidehome.utils.NetworkUtils;
-
 import android.util.Log;
+import com.word.wordinsidehome.utils.NetworkUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class WeatherBroadcastThread extends Thread {
 
 	private final String TAG = "WeatherBroadcastThread";
 	private static final String PREFERENCE_WEATHER_SETTING = "preference_weather_settings";
 	private Context mContext = null;
-    SystemWriteManager sw = null;
+//    SystemWriteManager sw = null;
 
 	@Override
 	public synchronized void start() {
@@ -29,7 +23,7 @@ public class WeatherBroadcastThread extends Thread {
 
 	public WeatherBroadcastThread(Context context) {
 		mContext = context;
-        sw = (SystemWriteManager) mContext.getSystemService("system_write");		
+//        sw = (SystemWriteManager) mContext.getSystemService("system_write");
 	}
 
 	@Override
@@ -82,7 +76,7 @@ public class WeatherBroadcastThread extends Thread {
 	            	mTemperatureInfo = jsonObjWeatherdata.getString("temperature");
 	    		      Log.d("zzkw", "===3333== mTemperatureInfo  : " + mTemperatureInfo);
 		
-		  } catch (JSONException e) { 
+		  } catch (JSONException e) {
             Log.d("zzkw","Jsons parse error =",e); 
             e.printStackTrace(); 
       } 
@@ -97,7 +91,7 @@ public class WeatherBroadcastThread extends Thread {
             
 			Log.d("zzkw","===== send broadcast with info , key : weather_today" + " ,value : " + today_info);
 			mContext.sendBroadcast(i);
-            sw.setProperty("sys.weather.send", "true");
+//            sw.setProperty("sys.weather.send", "true");
 		} else {
 			Log.d("zzkw", "===== something wrong happen !!!");
 		}

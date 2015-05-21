@@ -55,9 +55,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-//import android.os.SystemProperties;
-//import android.app.SystemWriteManager;
-
 public class Launcher extends Activity implements OnClickListener {
 
     private final static String TAG = "Wordinsidehome";
@@ -133,6 +130,7 @@ public class Launcher extends Activity implements OnClickListener {
         filter = new IntentFilter();
         filter.addAction(net_change_action);
         filter.addAction(wifi_signal_action);
+        // 监听wifi便携式热点状态广播，该广播为系统隐藏广播，无法直接使用，需要在源码环境下编译
 //        filter.addAction(WifiManager.WIFI_AP_STATE_CHANGED_ACTION);
         filter.addAction(Intent.ACTION_TIME_TICK);
         filter.addAction(weather_receive_action);

@@ -277,6 +277,7 @@ private void initRecevier() {
         this.updateUIRefleshData();
     }
 
+    @SuppressLint("NewApi")
     public void clearAnimation() {
         super.clearAnimation();
         if(this.alphaAnimator != null) {
@@ -310,6 +311,7 @@ private void initRecevier() {
         this.dataHandler.sendEmptyMessage(msgWhat);
     }
 
+    @SuppressLint("NewApi")
     public void setPageViewChangeAnimator(Animator animator, Animation rotateAnimation) {
         this.clearAnimation();
         this.alphaAnimator = animator;
@@ -388,20 +390,21 @@ private void initRecevier() {
 	}  
 
 private class GestureListener extends SimpleOnGestureListener implements OnTouchListener {  
-    /** ×óÓÒ»¬¶¯µÄ×î¶Ì¾àÀë */  
+    /** å·¦å³æ»‘åŠ¨çš„æœ€çŸ­è·ç¦» */  
     private int distance = 100;  
-    /** ×óÓÒ»¬¶¯µÄ×î´óËÙ¶È */  
+    /** å·¦å³æ»‘åŠ¨çš„æœ€å¤§é€Ÿåº¦ */  
     private int velocity = 200;  
       
     private GestureDetector gestureDetector;  
       
-    public GestureListener(Context context) {  
+    @SuppressLint("NewApi")
+    public GestureListener(Context context) {
         super();  
         gestureDetector = new GestureDetector(context, this);  
     }  
   
     /** 
-     * Ïò×ó»¬µÄÊ±ºòµ÷ÓÃµÄ·½·¨£¬×ÓÀàÓ¦¸ÃÖØÐ´ 
+     * å‘å·¦æ»‘çš„æ—¶å€™è°ƒç”¨çš„æ–¹æ³•ï¼Œå­ç±»åº”è¯¥é‡å†™ 
      * @return 
      */  
     public boolean left() {  
@@ -409,7 +412,7 @@ private class GestureListener extends SimpleOnGestureListener implements OnTouch
     }  
       
     /** 
-     * ÏòÓÒ»¬µÄÊ±ºòµ÷ÓÃµÄ·½·¨£¬×ÓÀàÓ¦¸ÃÖØÐ´ 
+     * å‘å³æ»‘çš„æ—¶å€™è°ƒç”¨çš„æ–¹æ³•ï¼Œå­ç±»åº”è¯¥é‡å†™ 
      * @return 
      */  
     public boolean right() {  
@@ -420,17 +423,17 @@ private class GestureListener extends SimpleOnGestureListener implements OnTouch
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,  
             float velocityY) {  
         // TODO Auto-generated method stub  
-        // e1£ºµÚ1¸öACTION_DOWN MotionEvent  
-        // e2£º×îºóÒ»¸öACTION_MOVE MotionEvent  
-        // velocityX£ºXÖáÉÏµÄÒÆ¶¯ËÙ¶È£¨ÏñËØ/Ãë£©  
-        // velocityY£ºYÖáÉÏµÄÒÆ¶¯ËÙ¶È£¨ÏñËØ/Ãë£©  
+        // e1ï¼šç¬¬1ä¸ªACTION_DOWN MotionEvent  
+        // e2ï¼šæœ€åŽä¸€ä¸ªACTION_MOVE MotionEvent  
+        // velocityXï¼šXè½´ä¸Šçš„ç§»åŠ¨é€Ÿåº¦ï¼ˆåƒç´ /ç§’ï¼‰  
+        // velocityYï¼šYè½´ä¸Šçš„ç§»åŠ¨é€Ÿåº¦ï¼ˆåƒç´ /ç§’ï¼‰  
   
-        // Ïò×ó»¬  
+        // å‘å·¦æ»‘  
         if (e1.getX() - e2.getX() > distance  
                 && Math.abs(velocityX) > velocity) {  
             left();  
         }  
-        // ÏòÓÒ»¬  
+        // å‘å³æ»‘  
         if (e2.getX() - e1.getX() > distance  
                 && Math.abs(velocityX) > velocity) {  
             right();  

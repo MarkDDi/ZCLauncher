@@ -1,6 +1,7 @@
 package com.word.wordinsidehome.service.image;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
 import java.io.File;
 import java.io.IOException;
@@ -84,7 +85,7 @@ public final class StorageUtils {
 
     private static boolean hasExternalStoragePermission(Context context) {
         boolean v1 = context.checkCallingOrSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE")
-                 == 0 ? true : false;
+                 == PackageManager.PERMISSION_GRANTED ? true : false;
         return v1;
     }
 }

@@ -13,7 +13,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.protocol.HttpContext;
 
 public class RetryHandler implements HttpRequestRetryHandler {
-    private static final int RETRY_SLEEP_TIME_MILLIS = 0x3E8;
+    private static final int RETRY_SLEEP_TIME_MILLIS = 0x3E8; // 1000
     private static HashSet exceptionBlacklist;
     private static HashSet exceptionWhitelist;
     private final int maxRetries;

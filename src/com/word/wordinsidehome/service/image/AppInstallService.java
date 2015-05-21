@@ -1,5 +1,6 @@
 package com.word.wordinsidehome.service.image;
 
+import android.annotation.SuppressLint;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
@@ -11,10 +12,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import com.word.wordinsidehome.service.entity.*;
 import java.io.Serializable;
+
+@SuppressLint("NewApi")
 public class AppInstallService extends IntentService {
     private static final String TAG = "AppInstallService";
     private String target;
     private IconsEntity appEntity;
+
     public AppInstallService() {
         super("AppInstallService");
         Log.d("AppDownloadThread", "AppInstallService---Constructor");

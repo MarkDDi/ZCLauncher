@@ -1,5 +1,6 @@
 package com.word.wordinsidehome.service;
 
+import android.annotation.SuppressLint;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import com.word.wordinsidehome.utils.*;
 import com.word.wordinsidehome.service.image.AppDownloadThread;
 
 
+@SuppressLint("NewApi")
 public class LoadService extends IntentService {
     private static final String TAG = "LoadService";
     public static final String DATA_ACTION = "DATA_ACTION";

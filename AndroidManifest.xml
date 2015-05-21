@@ -7,12 +7,12 @@
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
@@ -26,6 +26,16 @@
         <provider
             android:name=".service.dao.WordinsideProvider"
             android:authorities="WordinsideAuthorities"/>
+
+        <!-- Launcher的activity入口，原先没有不知道如何启动的 -->
+        <activity android:name=".Launcher"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="ANDROID.INTENT.CATEGORY.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <service android:name="com.word.wordinsidehome.service.LoadService"/>
         <service android:name="com.word.wordinsidehome.service.image.AppInstallService"/>
