@@ -169,7 +169,7 @@
         android:id="@+id/matrix_app_layout_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/matrix_app_flipper_1"
+        android:layout_alignRight="@+id/matrix_app_layout_1"
         android:layout_below="@+id/matrix_app_layout_1"
         android:layout_marginLeft="-62.0dip"
         android:layout_marginTop="-62.0dip"

@@ -329,6 +329,7 @@ public class Launcher extends Activity implements OnClickListener {
 
         this.matrixPager.initTabViewByIndex(defaultIndex, new SixPageViewStrategy(this.matrixPager));
         this.matrixPager.setTopAndSubTabs(this.navigationTabView, null);
+        // 由每个不同的内容页去加载自己重写后的loadData
         Launcher.this.matrixPager.loadData(false);
         LauncherEntity launcherEntity = launcherDAO.queryLauncherInfo(null, null, null, null);
         if (launcherEntity != null) {
@@ -417,6 +418,7 @@ public class Launcher extends Activity implements OnClickListener {
     }
 
 
+    // Launcher界面时屏蔽返回键
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean v0 = keyCode == KeyEvent.KEYCODE_BACK ? true : super.onKeyDown(keyCode, event);
         switch (keyCode) {
@@ -621,6 +623,7 @@ public class Launcher extends Activity implements OnClickListener {
 
     private void sendWeatherBroadcast() {
         Intent intent = new Intent();
+        // 发送到weather包的WeatherReceiver接收
         intent.setAction(weather_request_action);
         sendBroadcast(intent);
     }
@@ -665,7 +668,7 @@ public class Launcher extends Activity implements OnClickListener {
         Map<String, Object> map;
 
 	/*	 if(isSdcardExists() == true){
-		 	map = new HashMap<String, Object>();
+             map = new HashMap<String, Object>();
 			map.put("item_type", R.drawable.img_status_sdcard);
 			list.add(map);
 		}*/
@@ -831,10 +834,12 @@ public class Launcher extends Activity implements OnClickListener {
 
             Log.d(TAG, "netReceiver         action = " + action);
 
+            // 时间广播，每分钟由系统发出一次
             if (action.equals(Intent.ACTION_TIME_TICK)) {
                 displayDate();
 
                 time_count++;
+                // 每10分钟发送一次天气广播
                 if (time_count >= time_freq) {
                     sendWeatherBroadcast();
                     time_count = 0;

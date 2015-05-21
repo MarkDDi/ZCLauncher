@@ -69,6 +69,7 @@ import java.util.List;
         return this.strategy.getCurrentIndex();
     }
 
+    @SuppressLint("NewApi")
     public void initTabViewByIndex(int index, Abstract3DPagerStrategy strategy) {
         this.strategy = strategy;
         if(this.pageViews.size() == 0) {
@@ -160,6 +161,7 @@ import java.util.List;
     }
 
     public void setTopAndSubTabs(NavigationTabView top, SubTabView sub) {
+        // 第一次调用流程先是SixPageViewStrategy中的覆盖方法，在该方法第一行又调用其父类的该方法进行初始化
         this.strategy.setTopAndSubTabs(top, sub);
         this.topTabs = top;
         this.subTabs = sub;

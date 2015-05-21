@@ -6,7 +6,8 @@ import com.word.wordinsidehome.customview.SubTabView;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressLint(value={"UseSparseArrays"}) public abstract class Abstract3DPagerStrategy {
+@SuppressLint(value={"UseSparseArrays"})
+public abstract class Abstract3DPagerStrategy {
     protected PageChangeAnimationFactory animationFactory;
     protected int currentIndex;
     private boolean isRotating;
