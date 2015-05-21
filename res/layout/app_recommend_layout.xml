@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@+id/imageView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
- <!--   <ProgressBar android:id="@+id/appDownloadIcon" android:visibility="gone" android:layout_marginBottom="30.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/app_as_progress_style" /> !-->
-  <ImageView android:id="@+id/appDownloadIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_marginBottom="10.0dip" android:layout_alignParentRight="true" />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+    <!--   <ProgressBar android:id="@+id/appDownloadIcon" android:visibility="gone" android:layout_marginBottom="30.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/app_as_progress_style" /> !-->
+    <ImageView
+        android:id="@+id/appDownloadIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10.0dip"
+        android:visibility="gone"/>
 </RelativeLayout>

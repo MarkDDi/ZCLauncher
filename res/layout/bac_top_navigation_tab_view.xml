@@ -1,17 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="horizontal" android:background="@android:color/transparent"  android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@+id/navigation_cursor_view" android:focusable="false" android:layout_width="70.0dip" android:layout_height="wrap_content" android:layout_marginTop="75.0dip" android:src="@drawable/navigation_tab_cursor" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
-    <TextView android:textSize="23sp" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/navigation_tab_education_text" android:background="@android:color/transparent" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="37.0dip" android:text="@string/navigation_tab_education_text" android:singleLine="true" android:layout_centerHorizontal="true" />
-    <TextView android:textSize="23sp" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/navigation_tab_health_text" android:background="@android:color/transparent" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="37.0dip" android:layout_marginRight="63dip" android:text="@string/navigation_tab_health_text" android:singleLine="true" android:layout_toLeftOf="@+id/navigation_tab_education_text" />
-    <TextView android:textSize="23sp" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/navigation_tab_game_text" android:background="@android:color/transparent" android:focusable="true"  android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="37.0dip" android:layout_marginRight="63dip" android:text="@string/navigation_tab_game_text" android:singleLine="true" android:layout_toLeftOf="@+id/navigation_tab_health_text" />
-    <TextView android:textSize="23sp" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/navigation_tab_recommend_text" android:background="@android:color/transparent" android:focusable="true" android:nextFocusLeft="@+id/navigation_tab_recommend_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="37.0dip" android:layout_marginRight="63dip" android:text="@string/navigation_tab_recommend_text" android:singleLine="true" android:layout_toLeftOf="@+id/navigation_tab_game_text" />
-    <TextView android:textSize="23sp" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/navigation_tab_movie_text" android:background="@android:color/transparent" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="63dip" android:layout_marginTop="37.0dip" android:text="@string/navigation_tab_movie_text" android:singleLine="true" android:layout_toRightOf="@+id/navigation_tab_education_text" />
-    <TextView android:textSize="23sp" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/navigation_tab_app_text" android:background="@android:color/transparent" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="63dip" android:layout_marginTop="37.0dip" android:text="@string/navigation_tab_app_text" android:singleLine="true" android:layout_toRightOf="@+id/navigation_tab_movie_text" />
-    <ImageView android:id="@+id/navigation_tab_education_fade" android:background="@drawable/navigation_tab_fade_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
-    <ImageView android:id="@+id/navigation_tab_health_fade" android:background="@drawable/navigation_tab_fade_bg" android:focusable="true" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginRight="-180dip" android:layout_toLeftOf="@+id/navigation_tab_education_fade" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
-    <ImageView android:id="@+id/navigation_tab_game_fade" android:background="@drawable/navigation_tab_fade_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginRight="-180dip" android:layout_toLeftOf="@+id/navigation_tab_health_fade" android:contentDescription="@string/app_name" />
-    <ImageView android:id="@+id/navigation_tab_recommend_fade" android:background="@drawable/navigation_tab_fade_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginRight="-180dip" android:layout_toLeftOf="@+id/navigation_tab_game_fade" android:contentDescription="@string/app_name" />
-    <ImageView android:id="@+id/navigation_tab_movie_fade" android:background="@drawable/navigation_tab_fade_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-180.0dip" android:layout_marginTop="15.0dip" android:layout_toRightOf="@+id/navigation_tab_education_fade" android:contentDescription="@string/app_name" />
-    <ImageView android:id="@+id/navigation_tab_app_fade" android:background="@drawable/navigation_tab_fade_bg" android:visibility="invisible" android:nextFocusLeft="@+id/navigation_tab_app_fade" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-180.0dip" android:layout_marginTop="15.0dip" android:layout_toRightOf="@+id/navigation_tab_movie_fade" android:contentDescription="@string/app_name" />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/navigation_cursor_view"
+        android:layout_width="70.0dip"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75.0dip"
+        android:contentDescription="@string/app_name"
+        android:focusable="false"
+        android:src="@drawable/navigation_tab_cursor"/>
+
+    <TextView
+        android:id="@+id/navigation_tab_education_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37.0dip"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/navigation_tab_education_text"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"/>
+
+    <TextView
+        android:id="@+id/navigation_tab_health_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="63dip"
+        android:layout_marginTop="37.0dip"
+        android:layout_toLeftOf="@+id/navigation_tab_education_text"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/navigation_tab_health_text"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"/>
+
+    <TextView
+        android:id="@+id/navigation_tab_game_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="63dip"
+        android:layout_marginTop="37.0dip"
+        android:layout_toLeftOf="@+id/navigation_tab_health_text"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/navigation_tab_game_text"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"/>
+
+    <TextView
+        android:id="@+id/navigation_tab_recommend_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="63dip"
+        android:layout_marginTop="37.0dip"
+        android:layout_toLeftOf="@+id/navigation_tab_game_text"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:gravity="center"
+        android:nextFocusLeft="@+id/navigation_tab_recommend_text"
+        android:singleLine="true"
+        android:text="@string/navigation_tab_recommend_text"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"/>
+
+    <TextView
+        android:id="@+id/navigation_tab_movie_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="63dip"
+        android:layout_marginTop="37.0dip"
+        android:layout_toRightOf="@+id/navigation_tab_education_text"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/navigation_tab_movie_text"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"/>
+
+    <TextView
+        android:id="@+id/navigation_tab_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="63dip"
+        android:layout_marginTop="37.0dip"
+        android:layout_toRightOf="@+id/navigation_tab_movie_text"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/navigation_tab_app_text"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"/>
+
+    <ImageView
+        android:id="@+id/navigation_tab_education_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15.0dip"
+        android:background="@drawable/navigation_tab_fade_bg"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/navigation_tab_health_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="-180dip"
+        android:layout_marginTop="15.0dip"
+        android:layout_toLeftOf="@+id/navigation_tab_education_fade"
+        android:background="@drawable/navigation_tab_fade_bg"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/navigation_tab_game_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-180dip"
+        android:layout_marginTop="15.0dip"
+        android:layout_toLeftOf="@+id/navigation_tab_health_fade"
+        android:background="@drawable/navigation_tab_fade_bg"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/navigation_tab_recommend_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-180dip"
+        android:layout_marginTop="15.0dip"
+        android:layout_toLeftOf="@+id/navigation_tab_game_fade"
+        android:background="@drawable/navigation_tab_fade_bg"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/navigation_tab_movie_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-180.0dip"
+        android:layout_marginTop="15.0dip"
+        android:layout_toRightOf="@+id/navigation_tab_education_fade"
+        android:background="@drawable/navigation_tab_fade_bg"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/navigation_tab_app_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-180.0dip"
+        android:layout_marginTop="15.0dip"
+        android:layout_toRightOf="@+id/navigation_tab_movie_fade"
+        android:background="@drawable/navigation_tab_fade_bg"
+        android:contentDescription="@string/app_name"
+        android:nextFocusLeft="@+id/navigation_tab_app_fade"
+        android:visibility="invisible"/>
 </RelativeLayout>

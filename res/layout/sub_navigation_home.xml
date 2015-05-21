@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:gravity="center" android:id="@+id/sub_navigation_home_app_install_text" android:background="@drawable/sub_navigation_tab_focus" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
-        <TextView android:textSize="24.0sp" android:id="@+id/sub_navigation_home_app_install_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sub_navigation_home_app_install_text" />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/sub_navigation_home_app_install_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/sub_navigation_tab_focus"
+        android:focusable="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/sub_navigation_home_app_install_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sub_navigation_home_app_install_text"
+            android:textSize="24.0sp"/>
     </RelativeLayout>
-    <RelativeLayout android:gravity="center" android:id="@+id/sub_navigation_home_setting_text" android:background="@drawable/sub_navigation_tab_focus" android:focusable="true" android:nextFocusLeft="@+id/sub_navigation_home_setting_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="83.0dip" android:layout_toLeftOf="@+id/sub_navigation_home_app_install_text" android:layout_centerVertical="true">
-        <TextView android:textSize="24.0sp" android:id="@+id/sub_navigation_home_setting_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sub_navigation_home_setting_text" />
+
+    <RelativeLayout
+        android:id="@+id/sub_navigation_home_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="83.0dip"
+        android:layout_toLeftOf="@+id/sub_navigation_home_app_install_text"
+        android:background="@drawable/sub_navigation_tab_focus"
+        android:focusable="true"
+        android:gravity="center"
+        android:nextFocusLeft="@+id/sub_navigation_home_setting_text">
+
+        <TextView
+            android:id="@+id/sub_navigation_home_setting_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sub_navigation_home_setting_text"
+            android:textSize="24.0sp"/>
     </RelativeLayout>
-    <RelativeLayout android:gravity="center" android:id="@+id/sub_navigation_home_external_text" android:background="@drawable/sub_navigation_tab_focus" android:focusable="true" android:nextFocusRight="@+id/sub_navigation_home_external_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="83.0dip" android:layout_toRightOf="@+id/sub_navigation_home_app_install_text" android:layout_centerVertical="true">
-        <TextView android:textSize="24.0sp" android:id="@+id/sub_navigation_home_external_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sub_navigation_home_external_text" />
+
+    <RelativeLayout
+        android:id="@+id/sub_navigation_home_external_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="83.0dip"
+        android:layout_toRightOf="@+id/sub_navigation_home_app_install_text"
+        android:background="@drawable/sub_navigation_tab_focus"
+        android:focusable="true"
+        android:gravity="center"
+        android:nextFocusRight="@+id/sub_navigation_home_external_text">
+
+        <TextView
+            android:id="@+id/sub_navigation_home_external_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sub_navigation_home_external_text"
+            android:textSize="24.0sp"/>
     </RelativeLayout>
 </RelativeLayout>
