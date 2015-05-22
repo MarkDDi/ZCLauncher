@@ -216,46 +216,49 @@ public class MatrixAppView extends TabBasePageView {
         MatrixAppView.this.appList = MatrixAppView.this.appDAO.queryMatrixApp(null, null, null, null);
         int apps = this.appList.size();
         Log.d("zzktag", "setMatrixData() called size =" + apps);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
-        int temp;
-        for (temp = 0; temp < apps; ++temp) {
+        LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+
+        for (int temp = 0; temp < apps; ++temp) {
 
             // appList中每个元素存放的是ArrayList<IconsEntity>
             Object iconsEntity = this.appList.get(temp);
             int icons = ((ArrayList) iconsEntity).size();
-            int v10 = this.flippers[temp].getChildCount();
-            int v3;
-            if (icons > v10) {
+            // flipper为每个应用卡片，ViewFlipper
+            int flipperChildCount = this.flippers[temp].getChildCount();
+            int i;
+            if (icons > flipperChildCount) {
 
-                for (v3 = 0; v3 < icons - v10; ++v3) {
+                for (i = 0; i < icons - flipperChildCount; ++i) {
                     this.flippers[temp].addView(new AppRecommendView(this.getContext()), params);
                 }
-            } else if (icons < v10) {
-                for (v3 = icons; v3 < v10; ++v3) {
-                    this.flippers[temp].removeViewAt(v3);
+            } else if (icons < flipperChildCount) {
+                for (i = icons; i < flipperChildCount; ++i) {
+                    this.flippers[temp].removeViewAt(i);
                 }
             }
 
             if (((ArrayList) iconsEntity).size() > 0) {
+                // 设置ViewFlipper切换的时间间隔
                 this.flippers[temp].setFlipInterval(5000);
             }
 
-            int v4;
-            for (v4 = 0; v4 < icons; ++v4) {
-                Object v5 = ((ArrayList) iconsEntity).get(v4);
+
+            for (int k = 0; k < icons; ++k) {
+                // entitys为IconsEntity
+                Object entitys = ((ArrayList) iconsEntity).get(k);
                 Object v6 = null;
-                View v8 = this.flippers[temp].getChildAt(v4);
+                View v8 = this.flippers[k].getChildAt(k);
                 if (((AppRecommendView) v8).getTag() != null) {
                     v6 = ((AppRecommendView) v8).getTag();
                 }
                 Log.d("zzktag", "setMatrixData() v6 =" + v6);
-                if (v6 == null || ((IconsEntity) v6).get_appID() != ((IconsEntity) v5).get_appID() || !((IconsEntity) v6).get_icon().equals(((IconsEntity) v5).get_icon())) {
-                    ((AppRecommendView) v8).setTag(v5);
-                    this.mapDownload.put(((IconsEntity) v5).get_appName(), v8);
+                if (v6 == null || ((IconsEntity) v6).get_appID() != ((IconsEntity) entitys).get_appID() || !((IconsEntity) v6).get_icon().equals(((IconsEntity) entitys).get_icon())) {
+                    ((AppRecommendView) v8).setTag(entitys);
+                    this.mapDownload.put(((IconsEntity) entitys).get_appName(), v8);
 
 
                 }
-                ImageLoader.getInstance().displayImage(((IconsEntity) v5).get_icon(), ((AppRecommendView) v8).getImageView(), isRefleshData);
+                ImageLoader.getInstance().displayImage(((IconsEntity) entitys).get_icon(), ((AppRecommendView) v8).getImageView(), isRefleshData);
             }
         }
 

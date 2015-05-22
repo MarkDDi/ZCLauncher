@@ -2,41 +2,23 @@ package com.word.wordinsidehome.service.image;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.widget.ImageView;
-import android.util.Log;
-import android.os.AsyncTask;
-
-import java.lang.ref.SoftReference;
-import java.util.Map;
-import java.util.HashMap;
-
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.ImageView;
 
-import java.io.FileInputStream;
+import com.word.wordinsidehome.AppStoreApplication;
+import com.word.wordinsidehome.utils.MD5Utils;
+
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import android.net.Uri;
-
-import java.net.URLConnection;
-import java.io.IOException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import com.word.wordinsidehome.utils.*;
-import com.word.wordinsidehome.AppStoreApplication;
-import com.word.wordinsidehome.R;
 
 public class ImageLoader {
     public static final String TAG = "ImageLoader";
@@ -157,6 +139,14 @@ public class ImageLoader {
         return imgUrl;
     }
 
+    /**
+     *
+     * @param targetFile MD5加密后的缓存文件名
+     * @param url 图片url
+     * @param isRefleshData 是否刷新数据，第一次为false
+     * @return
+     * @throws IOException
+     */
     private Uri tryGetImageURI(File targetFile, String url, boolean isRefleshData) throws IOException {
         if (targetFile.exists() && !isRefleshData) {
             return Uri.fromFile(targetFile);

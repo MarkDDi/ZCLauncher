@@ -82,7 +82,7 @@ public class SixPageViewStrategy extends Abstract3DPagerStrategy {
 //        for (int i = 0; i < pageViews.size(); i++) {
 //            ((TabBasePageView)this.pageViews.get(i)).loadData(isRefleshData);
 //        }
-         // pageViews中存放是的每个具体的内容页View，如：MatrixAppView
+         // pageViews中存放是的每个具体的内容页View，如：MatrixAppView，MatrixGameView等
          // 因此调用的loadData是每个不同的内容页View，重写后的loadData
         ((TabBasePageView)this.pageViews.get(0)).loadData(isRefleshData);
         ((TabBasePageView)this.pageViews.get(1)).loadData(isRefleshData);
