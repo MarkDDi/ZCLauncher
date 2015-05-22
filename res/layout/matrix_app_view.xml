@@ -134,8 +134,8 @@
 
 
     <com.word.wordinsidehome.MyRelativeLayout
-        android:id="@+id/matrix_app_layout_4"
         android:layout_width="wrap_content"
+        android:id="@+id/matrix_app_layout_4"
         android:layout_height="wrap_content"
         android:layout_below="@+id/matrix_app_layout_1"
         android:layout_marginLeft="-62.0dip"

@@ -148,6 +148,10 @@ public class Launcher extends Activity implements OnClickListener {
 
     }
 
+    /**
+     * 底部三个导航的焦点控制
+     * @param mCurrentIndex ViewPager当前的index
+     */
     private void handleSubTab(int mCurrentIndex) {
         switch (mCurrentIndex) {
             case 0:   //app
