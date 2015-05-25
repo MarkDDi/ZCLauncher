@@ -445,7 +445,6 @@ public abstract class TabBasePageView extends RelativeLayout {
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            // TODO Auto-generated method stub
             gestureDetector.onTouchEvent(event);
             return false;
         }

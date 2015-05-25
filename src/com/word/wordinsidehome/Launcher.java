@@ -423,6 +423,7 @@ public class Launcher extends Activity implements OnClickListener {
 
 
     // Launcher界面时屏蔽返回键
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean v0 = keyCode == KeyEvent.KEYCODE_BACK ? true : super.onKeyDown(keyCode, event);
         switch (keyCode) {
@@ -974,7 +975,6 @@ public class Launcher extends Activity implements OnClickListener {
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            // TODO Auto-generated method stub
             // e1：第1个ACTION_DOWN MotionEvent
             // e2：最后一个ACTION_MOVE MotionEvent
             // velocityX：X轴上的移动速度（像素/秒）
@@ -993,7 +993,6 @@ public class Launcher extends Activity implements OnClickListener {
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            // TODO Auto-generated method stub
             gestureDetector.onTouchEvent(event);
             return false;
         }

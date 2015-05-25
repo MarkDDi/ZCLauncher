@@ -27,7 +27,6 @@ public class WordinsideProvider extends ContentProvider {
 		}
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // TODO Auto-generated method stub   
              db.execSQL("drop table if exists wordinside");
              this.onCreate(db);
         }

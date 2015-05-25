@@ -60,8 +60,7 @@ public class MyRelativeLayout extends RelativeLayout{
 
     @Override  
     public void onDraw(Canvas canvas) {  
-       // TODO Auto-generated method stub  
-       super.onDraw(canvas);        
+       super.onDraw(canvas);
     }  
 
 

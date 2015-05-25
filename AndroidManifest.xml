@@ -23,9 +23,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        <provider
-            android:name=".service.dao.WordinsideProvider"
-            android:authorities="WordinsideAuthorities"/>
 
         <!-- Launcher的activity入口，原先没有不知道如何启动的 -->
         <activity android:name=".Launcher"
@@ -39,6 +36,10 @@
 
         <service android:name="com.word.wordinsidehome.service.LoadService"/>
         <service android:name="com.word.wordinsidehome.service.image.AppInstallService"/>
+
+        <provider
+            android:name=".service.dao.WordinsideProvider"
+            android:authorities="WordinsideAuthorities"/>
 
         <receiver android:name="com.word.wordinsidehome.weather.WeatherReceiver">
             <intent-filter android:priority="3000">
