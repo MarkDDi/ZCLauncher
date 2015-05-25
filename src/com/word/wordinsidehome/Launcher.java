@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -698,15 +699,13 @@ public class Launcher extends Activity implements OnClickListener {
     private boolean isUsbExists() {
         File dir = new File(USB_PATH);
         if (dir.exists() && dir.isDirectory()) {
-            if (dir.listFiles() != null) {
-                if (dir.listFiles().length > 0) {
+            if (dir.listFiles() != null && dir.listFiles().length > 0) {
                     for (File file : dir.listFiles()) {
                         String path = file.getAbsolutePath();
                         if (path.startsWith(USB_PATH + "/sd") && !path.equals(SD_PATH)) {
                             return true;
                         }
                     }
-                }
             }
         }
 
@@ -846,17 +845,18 @@ public class Launcher extends Activity implements OnClickListener {
                 time_count++;
                 // 每10分钟发送一次天气广播
                 if (time_count >= time_freq) {
+                    // 发送到WeatherReceiver
                     sendWeatherBroadcast();
                     time_count = 0;
                 }
-            } else if (action.equals(weather_receive_action)) {
+            } else if (action.equals(weather_receive_action)) { // 该广播由WeatherBroadCastThread类发出
                 String weatherInfo = intent.getExtras().getString("weather_today");
+                // weatherInfo：深圳,30 ~ 26℃,duoyun
                 Log.d(TAG, "@@@@@@@@@@@@@@@@@@@@@@@@@@ receive " + action + " weather:" + weatherInfo);
                 setWeatherView(weatherInfo);
             } else {
                 displayStatus();
                 updateStatus();
-
             }
 
         }

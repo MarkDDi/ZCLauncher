@@ -60,7 +60,7 @@ public class AppStoreApplication extends Application {
     }
 
 
-    // 下面的广播都是发送到view包的MyDialog中动态广播进行接收
+    // 发送到view包的MyDialog或LauncherUpdateDialog中动态广播进行接收
     public static void sendDownloadProgressAppAction(IconsEntity appEntity, long progress) {
         Intent intent = new Intent("com.hiveview.appstore.download_progress");
         intent.putExtra("AppEntity", ((Serializable) appEntity));
@@ -68,7 +68,8 @@ public class AppStoreApplication extends Application {
         AppStoreApplication.mContext.sendBroadcast(intent);
     }
 
-
+   // 下载开始、完成、失败广播由TabBasePageView的动态广播DownloadProgressRecevier去接收
+   // 具体的逻辑由内容页去完成，如：MatrixAppView、MatrixGameView等
     public static void sendDownloadStartAppaction(IconsEntity appEntity) {
         Intent intent = new Intent("com.hiveview.appstore.home.download_start");
         intent.putExtra("AppEntity", ((Serializable) appEntity));

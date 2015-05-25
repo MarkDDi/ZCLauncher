@@ -118,7 +118,8 @@ public class AppDownloadThread {
     	       --DownloadManager.currentDownloadSize;
 			 AppStoreApplication.sendDownloadCompleteAppaction(tIcons);				   
           	 Log.i(TAG,  "  downloadComplete");
-             Intent intent = new Intent(mContext, AppInstallService.class);
+            // 发送到IntentService中
+            Intent intent = new Intent(mContext, AppInstallService.class);
             intent.putExtra("target", target);
 			intent.putExtra("AppEntity", ((Serializable)tIcons));
             mContext.startService(intent);    	

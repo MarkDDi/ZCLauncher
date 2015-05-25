@@ -26,6 +26,7 @@ public class InstallProgressView extends View {
     }
 
     private void init() {
+
         this.setBackgroundResource(R.anim.animation_winside_loading);
         this.mAnimationDrawable = (AnimationDrawable)this.getBackground();
         this.mAnimationDrawable.stop();

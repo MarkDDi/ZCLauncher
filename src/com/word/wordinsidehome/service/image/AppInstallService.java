@@ -4,13 +4,16 @@ import android.annotation.SuppressLint;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import com.word.wordinsidehome.service.entity.*;
+
 import java.io.Serializable;
 
 @SuppressLint("NewApi")
@@ -24,16 +27,18 @@ public class AppInstallService extends IntentService {
         Log.d("AppDownloadThread", "AppInstallService---Constructor");
     }
 
+    @Override
     protected void onHandleIntent(Intent intent) {
+        // 由AppDownloadThread类中下载完成方法downloadComplete()来启动服务
         this.target = intent.getStringExtra("target");
-		 appEntity = (IconsEntity)intent.getSerializableExtra("AppEntity");
+        appEntity = (IconsEntity) intent.getSerializableExtra("AppEntity");
 
         Log.i("AppDownloadThread", "onStartCommand -- target=" + this.target);
         sendBeginInstallAppAction();
         installApp(this.target);
     }
-    
-  private  void installApp(String filePath) {
+
+    private void installApp(String filePath) {
         Log.i("AppDownloadThread", "filePath == " + filePath);
         int v6 = 1;
         try {
@@ -41,38 +46,36 @@ public class AppInstallService extends IntentService {
             BufferedReader v0 = new BufferedReader(new InputStreamReader(v3));
             do {
                 String v4 = v0.readLine();
-                if(v4 != null) {
+                if (v4 != null) {
                     Log.i("AppDownloadThread", "line == " + v4);
-                    if(v4.indexOf("Success") == 0xFFFFFFFF) {
+                    if (v4.indexOf("Success") == 0xFFFFFFFF) { // -1
                         continue;
                     }
 
                     break;
                 }
 
-				          if(v6 == 1) {
-				              installFail(filePath);
-				          }
-				
-				          return;
-            }
-            while(true);
+                if (v6 == 1) {
+                    installFail(filePath);
+                }
+
+                return;
+            } while (true);
 
             v6 = 0;
 
             sendInstallSuccessAppAction();
-            if(v3 != null) {
+            if (v3 != null) {
                 v3.close();
             }
 
             v0.close();
- 
 
-          //  deleteDownloadFile(filePath);
+
+            //  deleteDownloadFile(filePath);
 
             return;
-        }
-        catch(Exception v1) {
+        } catch (Exception v1) {
             v1.printStackTrace();
             sendInstallFallAppAction();
             installFail(filePath);
@@ -81,32 +84,35 @@ public class AppInstallService extends IntentService {
     }
 
     private void installFail(String filePath) {
-    	    Log.i("AppDownloadThread", "installFail failed");
-    	   sendInstallFallAppAction();
-         deleteDownloadFile(filePath);
-    }  
-    private  void deleteDownloadFile(String filePath) {
+        Log.i("AppDownloadThread", "installFail failed");
+        sendInstallFallAppAction();
+        deleteDownloadFile(filePath);
+    }
+
+    private void deleteDownloadFile(String filePath) {
         File v0 = new File(filePath);
-        if(v0.exists()) {
-        	    	    Log.i("AppDownloadThread", "delete ="+filePath + "success");
+        if (v0.exists()) {
+            Log.i("AppDownloadThread", "delete =" + filePath + "success");
             v0.delete();
         }
     }
-    
-    private  void sendInstallSuccessAppAction() {
+
+    private void sendInstallSuccessAppAction() {
         Intent v0 = new Intent("com.hiveview.appstore.home_install_success");
-		v0.putExtra("AppEntity", ((Serializable)appEntity));		
+        v0.putExtra("AppEntity", ((Serializable) appEntity));
         AppInstallService.this.sendBroadcast(v0);
-    } 
-    private  void sendInstallFallAppAction() {
+    }
+
+    private void sendInstallFallAppAction() {
         Intent v0 = new Intent("com.hiveview.appstore.home_install_fail");
-		v0.putExtra("AppEntity", ((Serializable)appEntity));		
+        v0.putExtra("AppEntity", ((Serializable) appEntity));
         AppInstallService.this.sendBroadcast(v0);
-    } 
-    private  void sendBeginInstallAppAction() {
+    }
+
+    private void sendBeginInstallAppAction() {
         Intent v0 = new Intent("com.hiveview.appstore.home_install_begin");
-		v0.putExtra("AppEntity", ((Serializable)appEntity));
+        v0.putExtra("AppEntity", ((Serializable) appEntity));
         AppInstallService.this.sendBroadcast(v0);
-    }                 
+    }
 }
 

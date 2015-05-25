@@ -326,6 +326,7 @@ public class MatrixAppView extends TabBasePageView {
         };
     }
 
+    @Override
     public void onAppStoreReceive(Intent intent) {
         Object v3;
         IconsEntity appEntityReceiver = (IconsEntity) intent.getSerializableExtra("AppEntity");

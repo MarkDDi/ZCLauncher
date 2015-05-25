@@ -53,6 +53,7 @@ abstract public class LauncerUpdateDialog {
 
 
                 } else if ("com.hiveview.appstore.home_install_begin".equals(action)) {
+                    // 该广播由AppInstallService后台服务发出
                     description.setVisibility(View.GONE);
                     app_detail_install.setVisibility(View.VISIBLE);
                     app_detail_install.setText(String.format(app_detail_installStr, "应用正在安装，请稍后！"));
