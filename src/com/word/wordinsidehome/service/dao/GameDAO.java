@@ -83,8 +83,8 @@ public class GameDAO extends BaseDAO {
         cv.put("packageName", iconsEntity.get_packageName()); 
         cv.put("params", iconsEntity.get_params());                          	
         cv.put("startType", iconsEntity.get_startType());                                   	
-        cv.put("version", iconsEntity.get_version());  
-        resolver.insert(GameDAO.URI_GAME, cv);                       
+        cv.put("version", iconsEntity.get_version());
+        resolver.insert(GameDAO.URI_GAME, cv);
     }
     public void insert(WordinsideBaseEntity wdBaseEntity) {
     	  ArrayList iconsEntityArrayList = ((GameEntity)wdBaseEntity).get_iconsEntity();

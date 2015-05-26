@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import com.word.wordinsidehome.customview.NavigationTabView;
 import com.word.wordinsidehome.customview.SubTabView;
+import com.word.wordinsidehome.utils.LogUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,7 +91,7 @@ import java.util.List;
                 int v0;
                 for(v0 = 0; v0 < this.pageViews.size(); ++v0) {
                     ((TabBasePageView)this.pageViews.get(v0)).setAlpha(0f);
-                     Log.e("View3DPager", "index="+v0+"setAlpha(0f)");
+                    LogUtils.d("index = " + v0 + "  setAlpha(0f)");
                 }
 
                 ((TabBasePageView)v1).setAlpha(1f);

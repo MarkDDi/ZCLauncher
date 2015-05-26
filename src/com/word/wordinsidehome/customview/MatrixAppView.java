@@ -27,6 +27,7 @@ import android.util.Log;
 
 import com.word.wordinsidehome.customview.pager3d.TabBasePageView;
 import com.word.wordinsidehome.customview.pager3d.TabBasePageView.ViewFocusDirectionListener;
+import com.word.wordinsidehome.utils.LogUtils;
 import com.word.wordinsidehome.view.AppRecommendView;
 import com.word.wordinsidehome.view.MyDialog;
 
@@ -145,7 +146,7 @@ public class MatrixAppView extends TabBasePageView {
     }
 
     public void loadData(boolean isRefleshData) {
-        Log.d("zzktag", "loadData() called");
+        LogUtils.d("loadData() called");
         setMatrixData(isRefleshData);
     }
 
@@ -215,7 +216,7 @@ public class MatrixAppView extends TabBasePageView {
     public void setMatrixData(boolean isRefleshData) {
         MatrixAppView.this.appList = MatrixAppView.this.appDAO.queryMatrixApp(null, null, null, null);
         int apps = this.appList.size();
-        Log.d("zzktag", "setMatrixData() called size =" + apps);
+        LogUtils.d("setMatrixData() called size =" + apps);
         LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 
         for (int temp = 0; temp < apps; ++temp) {

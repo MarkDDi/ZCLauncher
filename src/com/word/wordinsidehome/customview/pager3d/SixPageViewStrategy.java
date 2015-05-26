@@ -12,6 +12,8 @@ import com.word.wordinsidehome.customview.MatrixAppView;
 import com.word.wordinsidehome.customview.NavigationTabView;
 import com.word.wordinsidehome.customview.SubTabView;
 import com.word.wordinsidehome.customview.pager3d.TabBasePageView.ViewFocusDirectionListener;
+import com.word.wordinsidehome.utils.LogUtils;
+
 import android.util.Log;
 
 @SuppressLint(value={"NewApi"})
@@ -41,6 +43,7 @@ public class SixPageViewStrategy extends Abstract3DPagerStrategy {
 
     public SixPageViewStrategy(View3DPager _3dPager) {
         super(_3dPager);
+        LogUtils.d("初始化PageView");
         this.view3dPager.addTabPageView(new MatrixAppView(this.view3dPager.getContext()), 0);         
         this.view3dPager.addTabPageView(new MatrixMovieView(this.view3dPager.getContext()), 1); 
         this.view3dPager.addTabPageView(new MatrixEducationView(this.view3dPager.getContext()), 2); 
@@ -135,7 +138,7 @@ public class SixPageViewStrategy extends Abstract3DPagerStrategy {
         this.topTabs.setRecommandTabVisble(0, 3);
         this.topTabs.setGameTabVisble(0, 4);
         this.topTabs.setHealthTabVisble(0, 5);
-             	Log.d("zzk", "call setTopAndSubTabs()");
+             	LogUtils.d("call setTopAndSubTabs()");
         //sub.addBottomMenus(this.pageViews, this.currentIndex);
     }
 

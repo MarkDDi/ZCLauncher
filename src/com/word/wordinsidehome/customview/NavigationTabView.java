@@ -17,6 +17,7 @@ import android.animation.*;
 import android.util.Log;
 
 import com.word.wordinsidehome.R;
+import com.word.wordinsidehome.utils.LogUtils;
 
 
 public class NavigationTabView extends RelativeLayout {
@@ -353,7 +354,7 @@ public void setAppTabVisble(int visble, int tag) {
     }
 
     public void setRecommandTabVisble(int visble, int tag) {
-        Log.d("zzk", "setRecommandTabVisble visble =" + visble);
+        LogUtils.d("setRecommandTabVisble visble =" + visble);
         this.recommendTextView.setVisibility(visble);
         this.recommendTextView.setTag(Integer.valueOf(tag));
     }

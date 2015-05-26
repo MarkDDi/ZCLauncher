@@ -46,6 +46,7 @@ import com.word.wordinsidehome.service.dao.LauncherDAO;
 import com.word.wordinsidehome.service.entity.IconsEntity;
 import com.word.wordinsidehome.service.entity.LauncherEntity;
 import com.word.wordinsidehome.service.image.ImageLoader;
+import com.word.wordinsidehome.utils.LogUtils;
 import com.word.wordinsidehome.view.LauncerUpdateDialog;
 
 import java.io.File;
@@ -725,13 +726,14 @@ public class Launcher extends Activity implements OnClickListener {
 
     private boolean isEthernetOn() {
         ConnectivityManager connectivity = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = connectivity.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
+       /* NetworkInfo info = connectivity.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
 
         if (info.isConnected()) {
             return true;
         } else {
             return false;
-        }
+        }*/
+        return true;
     }
 
     private void setWeatherView(String str_weather) {
@@ -818,11 +820,13 @@ public class Launcher extends Activity implements OnClickListener {
                 if (launcherEntity != null) {
                     String version = sharepreference.getString(WINSIDE_LAUNCHER_VERSION, "null");
                     Log.d("zzklogo", "launcher version = " + version);
+                    LogUtils.e("new versionCode = " + launcherEntity.get_version());
+                    // 此处应该是比较版本号大小，后期需要修改服务器发过来的数据
                     if (!version.equals(launcherEntity.get_version()) && shouldShowLauncherUpdateTip) {
                         Log.d("zzklogo", "launcherEntity = " + launcherEntity);
                         shouldShowLauncherUpdateTip = false;
                         ImageLoader.getInstance().displayImage(launcherEntity.get_icon(), img_logo, true);
-                        showLauncherNewVersionDialog(launcherEntity);
+//                        showLauncherNewVersionDialog(launcherEntity);
                     }
                 }
             }

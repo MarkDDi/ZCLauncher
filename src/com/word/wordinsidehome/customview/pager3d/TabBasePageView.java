@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
 import com.word.wordinsidehome.service.net.HttpTaskManager;
+import com.word.wordinsidehome.utils.LogUtils;
 
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.*;
@@ -254,7 +255,7 @@ public abstract class TabBasePageView extends RelativeLayout {
     }
 
     private void initRecevier() {
-        Log.d("zzkd", "initRecevier()");
+        LogUtils.d("initRecevier()");
         this.recevier = new DownloadProgressRecevier();
         IntentFilter intent = new IntentFilter();
         intent.addAction("com.hiveview.appstore.home.download_start");

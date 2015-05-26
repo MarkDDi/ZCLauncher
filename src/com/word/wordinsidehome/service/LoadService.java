@@ -23,6 +23,7 @@ import com.word.wordinsidehome.service.image.AppDownloadThread;
 
 @SuppressLint("NewApi")
 public class LoadService extends IntentService {
+    // 该服务由RefleshHandler启动
     private static final String TAG = "LoadService";
     public static final String DATA_ACTION = "DATA_ACTION";
     private ArrayList iconsEntityArrayList;

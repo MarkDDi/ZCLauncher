@@ -128,6 +128,7 @@ public class WordinsideProvider extends ContentProvider {
         return null;
     }
 
+    @Override
     public boolean onCreate() {
         this.db = new DBHelper(this.getContext()).getWritableDatabase();
         return false;

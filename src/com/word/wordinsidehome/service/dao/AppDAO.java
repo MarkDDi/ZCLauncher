@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.util.Log;
 
 import com.word.wordinsidehome.service.entity.*;
+import com.word.wordinsidehome.utils.LogUtils;
 
 import java.util.ArrayList;
 
@@ -138,7 +139,7 @@ public class AppDAO extends BaseDAO {
             for (v1 = 0; v1 < 6; ++v1) {
                 v0.add(this.query(null, new StringBuffer().append("position").append(" = ? ").toString(),
                                         new String[]{new StringBuilder(String.valueOf(v1 + 1)).toString()}, null));
-                Log.d("zzktag", "v1=" + v1);
+                LogUtils.d("v1=" + v1);
             }
 
             return v0;

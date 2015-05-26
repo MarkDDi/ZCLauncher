@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.word.wordinsidehome"
           xmlns:android="http://schemas.android.com/apk/res/android"
-          android:sharedUserId="android.uid.system"
+
           android:versionCode="2"
           android:versionName="1.2">
+    <!--android:sharedUserId="android.uid.system"-->
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
@@ -30,6 +31,7 @@
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <category android:name="ANDROID.INTENT.CATEGORY.DEFAULT"/>
                 <category android:name="ANDROID.INTENT.CATEGORY.LAUNCHER"/>
             </intent-filter>
         </activity>
