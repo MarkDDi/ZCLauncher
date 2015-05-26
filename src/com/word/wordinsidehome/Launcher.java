@@ -138,6 +138,7 @@ public class Launcher extends Activity implements OnClickListener {
         registerReceiver(netReceiver, filter);
 
         filter = new IntentFilter();
+        // 该广播由LoadService服务发出
         filter.addAction("DATA_ACTION");
         this.registerReceiver(dataReceiver, filter);
 

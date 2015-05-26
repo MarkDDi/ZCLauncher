@@ -41,7 +41,7 @@ public class AppDownloadThread {
                         return;
                     }
 
-                    long v1 = 0x3E8;
+                    long v1 = 0x3E8; // 1000
                     try {
                         Thread.sleep(v1);
                     }
@@ -52,7 +52,7 @@ public class AppDownloadThread {
                            AppDownloadThread.this.progress);
 
                 }
-                while(AppDownloadThread.this.progress != 0x64);
+                while(AppDownloadThread.this.progress != 0x64); // 100
 
                 AppDownloadThread.this.flag = false;
                 AppDownloadThread.this.downloadComplete(target,AppDownloadThread.this.tIcons);

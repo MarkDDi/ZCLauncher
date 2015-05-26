@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 
 public class WordinsideProvider extends ContentProvider {
-	
+
     class DBHelper extends SQLiteOpenHelper {
         public DBHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
@@ -24,11 +24,11 @@ public class WordinsideProvider extends ContentProvider {
             db.execSQL(new AppDAO(WordinsideProvider.this.getContext()).createTableString());
             db.execSQL(new HealthDAO(WordinsideProvider.this.getContext()).createTableString());
             db.execSQL(new LauncherDAO(WordinsideProvider.this.getContext()).createTableString());
-		}
+        }
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-             db.execSQL("drop table if exists wordinside");
-             this.onCreate(db);
+            db.execSQL("drop table if exists wordinside");
+            this.onCreate(db);
         }
     }
 
@@ -47,41 +47,41 @@ public class WordinsideProvider extends ContentProvider {
         this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_RECOMMEND, 3);
         this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_EDUCATION, 4);
         this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_MOVIE, 5);
-        this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_APP, 6);   
-        this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_LAUNCHER, 7); 		
+        this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_APP, 6);
+        this.mUriMatcher.addURI(BaseDAO.AUTHORITIES, BaseDAO.TABLE_LAUNCHER, 7);
 
     }
 
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        switch(this.mUriMatcher.match(uri)) {
+        switch (this.mUriMatcher.match(uri)) {
             case 1: {
-				        this.db.delete(BaseDAO.TABLE_HEALTH, selection, selectionArgs);
-				        break;
+                this.db.delete(BaseDAO.TABLE_HEALTH, selection, selectionArgs);
+                break;
             }
             case 2: {
-				        this.db.delete(BaseDAO.TABLE_GAME, selection, selectionArgs);
-				        break;
+                this.db.delete(BaseDAO.TABLE_GAME, selection, selectionArgs);
+                break;
             }
             case 3: {
-				        this.db.delete(BaseDAO.TABLE_RECOMMEND, selection, selectionArgs);
-				        break;
+                this.db.delete(BaseDAO.TABLE_RECOMMEND, selection, selectionArgs);
+                break;
             }
             case 4: {
-				        this.db.delete(BaseDAO.TABLE_EDUCATION, selection, selectionArgs);
-				        break;
+                this.db.delete(BaseDAO.TABLE_EDUCATION, selection, selectionArgs);
+                break;
             }
             case 5: {
-				        this.db.delete(BaseDAO.TABLE_MOVIE, selection, selectionArgs);
-				        break;
+                this.db.delete(BaseDAO.TABLE_MOVIE, selection, selectionArgs);
+                break;
             }
             case 6: {
-				        this.db.delete(BaseDAO.TABLE_APP, selection, selectionArgs);
-				        break;
+                this.db.delete(BaseDAO.TABLE_APP, selection, selectionArgs);
+                break;
             }
             case 7: {
-				        this.db.delete(BaseDAO.TABLE_LAUNCHER, selection, selectionArgs);
-				        break;
-            }			
+                this.db.delete(BaseDAO.TABLE_LAUNCHER, selection, selectionArgs);
+                break;
+            }
 
         }
 
@@ -94,7 +94,7 @@ public class WordinsideProvider extends ContentProvider {
     }
 
     public Uri insert(Uri uri, ContentValues values) {
-        switch(this.mUriMatcher.match(uri)) {
+        switch (this.mUriMatcher.match(uri)) {
             case 1: {
                 this.db.insert(BaseDAO.TABLE_HEALTH, null, values);
                 break;
@@ -122,7 +122,7 @@ public class WordinsideProvider extends ContentProvider {
             case 7: {
                 this.db.insert(BaseDAO.TABLE_LAUNCHER, null, values);
                 break;
-            }			
+            }
         }
 
         return null;
@@ -134,28 +134,28 @@ public class WordinsideProvider extends ContentProvider {
     }
 
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        switch(this.mUriMatcher.match(uri)) {
+        switch (this.mUriMatcher.match(uri)) {
             case 1: {
-		        return this.db.query(BaseDAO.TABLE_HEALTH, null, selection, selectionArgs, null, null,sortOrder);
+                return this.db.query(BaseDAO.TABLE_HEALTH, null, selection, selectionArgs, null, null, sortOrder);
             }
             case 2: {
-		        return this.db.query(BaseDAO.TABLE_GAME, null, selection, selectionArgs, null, null,sortOrder);
+                return this.db.query(BaseDAO.TABLE_GAME, null, selection, selectionArgs, null, null, sortOrder);
             }
             case 3: {
-		        return this.db.query(BaseDAO.TABLE_RECOMMEND, null, selection, selectionArgs, null, null,sortOrder);
+                return this.db.query(BaseDAO.TABLE_RECOMMEND, null, selection, selectionArgs, null, null, sortOrder);
             }
             case 4: {
-		        return this.db.query(BaseDAO.TABLE_EDUCATION, null, selection, selectionArgs, null, null,sortOrder);
+                return this.db.query(BaseDAO.TABLE_EDUCATION, null, selection, selectionArgs, null, null, sortOrder);
             }
             case 5: {
-		        return this.db.query(BaseDAO.TABLE_MOVIE, null, selection, selectionArgs, null, null,sortOrder);
+                return this.db.query(BaseDAO.TABLE_MOVIE, null, selection, selectionArgs, null, null, sortOrder);
             }
             case 6: {
- 		        return this.db.query(BaseDAO.TABLE_APP, null, selection, selectionArgs, null, null,sortOrder);
+                return this.db.query(BaseDAO.TABLE_APP, null, selection, selectionArgs, null, null, sortOrder);
             }
             case 7: {
- 		        return this.db.query(BaseDAO.TABLE_LAUNCHER, null, selection, selectionArgs, null, null,sortOrder);
-            }			
+                return this.db.query(BaseDAO.TABLE_LAUNCHER, null, selection, selectionArgs, null, null, sortOrder);
+            }
 
         }
 

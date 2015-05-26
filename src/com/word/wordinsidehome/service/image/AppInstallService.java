@@ -29,7 +29,7 @@ public class AppInstallService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        // 由AppDownloadThread类中下载完成方法downloadComplete()来启动服务
+        // 由AppDownloadThread类中下载完成方法downloadComplete()来开始服务
         this.target = intent.getStringExtra("target");
         appEntity = (IconsEntity) intent.getSerializableExtra("AppEntity");
 
@@ -42,13 +42,13 @@ public class AppInstallService extends IntentService {
         Log.i("AppDownloadThread", "filePath == " + filePath);
         int v6 = 1;
         try {
-            InputStream v3 = Runtime.getRuntime().exec("pm install -r " + filePath + " \n").getInputStream();
-            BufferedReader v0 = new BufferedReader(new InputStreamReader(v3));
+            InputStream in = Runtime.getRuntime().exec("pm install -r " + filePath + " \n").getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
             do {
-                String v4 = v0.readLine();
-                if (v4 != null) {
-                    Log.i("AppDownloadThread", "line == " + v4);
-                    if (v4.indexOf("Success") == 0xFFFFFFFF) { // -1
+                String line = br.readLine();
+                if (line != null) {
+                    Log.i("AppDownloadThread", "line == " + line);
+                    if (line.indexOf("Success") == 0xFFFFFFFF) { // -1
                         continue;
                     }
 
@@ -65,11 +65,11 @@ public class AppInstallService extends IntentService {
             v6 = 0;
 
             sendInstallSuccessAppAction();
-            if (v3 != null) {
-                v3.close();
+            if (in != null) {
+                in.close();
             }
 
-            v0.close();
+            br.close();
 
 
             //  deleteDownloadFile(filePath);
@@ -83,6 +83,7 @@ public class AppInstallService extends IntentService {
         }
     }
 
+    // 下列的安装以及下载状态广播由MyDialog和LauncherUpdateDialog进行接收
     private void installFail(String filePath) {
         Log.i("AppDownloadThread", "installFail failed");
         sendInstallFallAppAction();
