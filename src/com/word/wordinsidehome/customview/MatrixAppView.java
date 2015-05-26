@@ -216,7 +216,7 @@ public class MatrixAppView extends TabBasePageView {
     public void setMatrixData(boolean isRefleshData) {
         MatrixAppView.this.appList = MatrixAppView.this.appDAO.queryMatrixApp(null, null, null, null);
         int apps = this.appList.size();
-        LogUtils.d("setMatrixData() called size =" + apps);
+        LogUtils.d("apps called size =" + apps);
         LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 
         for (int temp = 0; temp < apps; ++temp) {

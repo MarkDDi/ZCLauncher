@@ -132,23 +132,21 @@ public class AppDAO extends BaseDAO {
     }
 
     public synchronized ArrayList queryMatrixApp(String[] selections, String where, String[] selectionArgs, String sortOrder) {
-        ArrayList<ArrayList<IconsEntity>> v0 = new ArrayList();
+        ArrayList<ArrayList<IconsEntity>> matrixApps = new ArrayList();
         try {
 
-            int v1;
-            for (v1 = 0; v1 < 6; ++v1) {
-                v0.add(this.query(null, new StringBuffer().append("position").append(" = ? ").toString(),
-                                        new String[]{new StringBuilder(String.valueOf(v1 + 1)).toString()}, null));
-                LogUtils.d("v1=" + v1);
+            for (int i = 0; i < 6; ++i) {
+                matrixApps.add(this.query(null, new StringBuffer().append("position").append(" = ? ").toString(), new String[]{new StringBuilder(String.valueOf(i + 1)).toString()}, null));
             }
 
-            return v0;
+            LogUtils.d("matrixApps : " + matrixApps.toString());
+            return matrixApps;
 
 
-        } catch (Throwable v3) {
-            Log.d("zzktag", "" + v3);
+        } catch (Throwable e) {
+            LogUtils.e("数据库查询失败" + e.toString());
         }
-        return v0;
+        return matrixApps;
     }
 
     public void update(String where, String[] selectionArgs) {

@@ -6,11 +6,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 import com.word.wordinsidehome.service.entity.*;
+import com.word.wordinsidehome.utils.LogUtils;
+
 import java.util.ArrayList;
 
 public class GameDAO extends BaseDAO {
 
-    private final String TAG = "BaseDAO";
+//    private final String TAG = "BaseDAO";
     private Context context;
 
 
@@ -38,7 +40,7 @@ public class GameDAO extends BaseDAO {
         v0.append("startType integer,");                                                 
         v0.append("version text");
         v0.append(");");
-        Log.d(this.TAG, new StringBuilder(String.valueOf(v0.toString())).toString());
+        LogUtils.d(new StringBuilder(String.valueOf(v0.toString())).toString());
         return v0.toString();
     }
 
