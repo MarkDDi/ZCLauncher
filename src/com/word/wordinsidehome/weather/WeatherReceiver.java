@@ -50,8 +50,11 @@ public class WeatherReceiver extends BroadcastReceiver {
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		wifiState = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
 		mobileState = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
-        ethState = cm.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET).getState();
-		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null && State.CONNECTED == ethState)) {
+		//TODO 模拟器测试无以太网
+//        ethState = cm.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET).getState();
+
+//		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null && State.CONNECTED == ethState)) {
+		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null)) {
 			LogUtils.d("wifi connect , send weather info right now !!!");
 			new WeatherBroadcastThread(mContext).start();
 		}

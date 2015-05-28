@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World</string>
-    <string name="app_name">WordInside launcher</string>
+    <string name="app_name">Winsidelauncher</string>
     <string name="hlw">葫芦娃大战变形金刚</string>
     <string name="sub_navigation_home_app_install_text">已安装应用</string>
     <string name="sub_navigation_home_setting_text">系统设置</string>
