@@ -158,6 +158,7 @@ public class NavigationTabView extends RelativeLayout {
         this.recomendGetFocusAnimSet = new AnimatorSet();
         this.recomendGetFocusAnimSet.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.recommendTextView, "scaleX", new float[]{1.0f, 1.2f}).setDuration(DURATION), ObjectAnimator.ofFloat(this.recommendTextView, "scaleY", new float[]{1.0f, 1.2f}).setDuration(DURATION), ObjectAnimator.ofFloat(this.recommendFadeView, "alpha", new float[]{1.0f, 0.6f, 1.0f}).setDuration(DURATION)});
         this.recomendLostFocusAnimSet = new AnimatorSet();
+
         this.recomendLostFocusAnimSet.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.recommendTextView, "scaleX", new float[]{1.2f, 1.0f}).setDuration(DURATION), ObjectAnimator.ofFloat(this.recommendTextView, "scaleY", new float[]{1.2f, 1.0f}).setDuration(DURATION), ObjectAnimator.ofFloat(this.recommendFadeView, "alpha", new float[]{1.0f, 0.6f, 1.0f}).setDuration(DURATION)});
         this.appGetFocusAnimSet = new AnimatorSet();
         this.appGetFocusAnimSet.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.appTextView, "scaleX", new float[]{1.0f, 1.2f}).setDuration(DURATION), ObjectAnimator.ofFloat(this.appTextView, "scaleY", new float[]{1.0f, 1.2f}).setDuration(DURATION), ObjectAnimator.ofFloat(this.appFadeView, "alpha", new float[]{1.0f, 0.6f, 1.0f}).setDuration(DURATION)});
@@ -190,7 +191,7 @@ public class NavigationTabView extends RelativeLayout {
         this.educationTextView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View view, boolean focused) {
                 if (focused) {
-                    Log.d("zzk", "educationTextView focused");
+                    LogUtils.d("educationTextView focused");
                     NavigationTabView.this.educationGetFocusAnimSet.start();
                     NavigationTabView.this.educationFadeView.setVisibility(View.VISIBLE);
                     NavigationTabView.this.tabChangeListener.onScrollStart(((Integer) NavigationTabView.this.educationTextView.getTag()).intValue());
@@ -205,11 +206,11 @@ public class NavigationTabView extends RelativeLayout {
                 if (focused) {
                     NavigationTabView.this.recomendGetFocusAnimSet.start();
                     NavigationTabView.this.recommendFadeView.setVisibility(View.VISIBLE);
-                    Log.d("zzk", "recommendTextView focused");
+                    LogUtils.d("recommendTextView focused");
 
                     NavigationTabView.this.tabChangeListener.onScrollStart(((Integer) NavigationTabView.this.recommendTextView.getTag()).intValue());
                 } else {
-                    Log.d("zzk", "recommendTextView lost focused");
+                    LogUtils.d("recommendTextView lost focused");
                     NavigationTabView.this.recomendLostFocusAnimSet.start();
                     NavigationTabView.this.recommendFadeView.setVisibility(View.INVISIBLE);
                 }
@@ -243,12 +244,12 @@ public class NavigationTabView extends RelativeLayout {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void scrollCursor(int preIndex, int currentIndex, int pageCount) {
-        float[]   v4;
+        float[] v4;
         ImageView v2;
-        long      v10 = 0;
-        float     v9  = 109f;
-        int       v8  = 2;
-        int       v1  = preIndex - currentIndex;
+        long v10 = 0;
+        float v9 = 109f;
+        int v8 = 2;
+        int v1 = preIndex - currentIndex;
         if (v1 != 0) {
             float v0 = this.cursorImageView.getTranslationX();
             if (currentIndex == pageCount - 1 && preIndex == 0) {
@@ -293,7 +294,7 @@ public class NavigationTabView extends RelativeLayout {
         }
     }
 
-public void setAppTabVisble(int visble, int tag) {
+    public void setAppTabVisble(int visble, int tag) {
         this.appTextView.setVisibility(visble);
         this.appTextView.setTag(Integer.valueOf(tag));
     }
@@ -324,7 +325,7 @@ public void setAppTabVisble(int visble, int tag) {
                 break;
             }
             case 2: {
-                Log.d("zzk", "recommendTextView=" + recommendTextView);
+                LogUtils.d("导航当前焦点index = " + index + " recommendTextView = " + recommendTextView.getClass());
 
                 this.recommendTextView.requestFocus();
                 break;

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.word.wordinsidehome.AppStoreApplication;
+import com.word.wordinsidehome.utils.LogUtils;
 import com.word.wordinsidehome.utils.MD5Utils;
 
 import java.io.File;
@@ -50,7 +51,7 @@ public class ImageLoader {
   /*     LoadAndDisplayImageTask loadthread = new LoadAndDisplayImageTask(uri, imageView); 
        this.engine.submit(loadthread);   */
         download(uri, imageView, isRefleshData);
-        Log.d("zzktag", "displayImage() uri=" + uri);
+        LogUtils.d("displayImage() uri=" + uri);
 
     }
 
@@ -58,11 +59,11 @@ public class ImageLoader {
     ;
 
     @SuppressLint("NewApi")
-    public void download(String url, ImageView imageView, boolean isRefleshData) {
+    public void download(String uri, ImageView imageView, boolean isRefleshData) {
 
         BitmapDownloaderTask task = new BitmapDownloaderTask(imageView, isRefleshData);
         // task.execute(url);
-        task.executeOnExecutor(executor, url);
+        task.executeOnExecutor(executor, uri);
     }
 
 
@@ -116,7 +117,7 @@ public class ImageLoader {
         Uri imgUrl = null;
         File imgCacheDir = StorageUtils.getCacheDirectory(mContext, true);
         String imgName = MD5Utils.getMD5String(uri);
-        Log.d(TAG, " imgName_Md5 =  " + imgName);
+        LogUtils.d(" imgName_Md5 =  " + imgName);
         File currentImgFile = new File(imgCacheDir, imgName);
 
         if (!currentImgFile.exists()) {
@@ -140,9 +141,8 @@ public class ImageLoader {
     }
 
     /**
-     *
-     * @param targetFile MD5加密后的缓存文件名
-     * @param url 图片url
+     * @param targetFile    MD5加密后的缓存文件名
+     * @param url           图片url
      * @param isRefleshData 是否刷新数据，第一次为false
      * @return
      * @throws IOException

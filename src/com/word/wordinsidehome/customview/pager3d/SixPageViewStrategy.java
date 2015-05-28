@@ -82,22 +82,24 @@ public class SixPageViewStrategy extends Abstract3DPagerStrategy {
     }
 
     public void loadPageData(boolean isRefleshData) {
-//        for (int i = 0; i < pageViews.size(); i++) {
-//            ((TabBasePageView)this.pageViews.get(i)).loadData(isRefleshData);
-//        }
+        for (int i = 0; i < pageViews.size(); i++) {
+                LogUtils.d("加载PageData： " + pageViews.get(i).getClass().getSimpleName());
+
+               ((TabBasePageView) this.pageViews.get(i)).loadData(isRefleshData);
+        }
          // pageViews中存放是的每个具体的内容页View，如：MatrixAppView，MatrixGameView等
          // 因此调用的loadData是每个不同的内容页View，重写后的loadData
-        ((TabBasePageView)this.pageViews.get(0)).loadData(isRefleshData);
-        ((TabBasePageView)this.pageViews.get(1)).loadData(isRefleshData);
-        ((TabBasePageView)this.pageViews.get(2)).loadData(isRefleshData);
-        ((TabBasePageView)this.pageViews.get(3)).loadData(isRefleshData);
-        ((TabBasePageView)this.pageViews.get(4)).loadData(isRefleshData);
-        ((TabBasePageView)this.pageViews.get(5)).loadData(isRefleshData);
+//        ((TabBasePageView)this.pageViews.get(0)).loadData(isRefleshData);
+//        ((TabBasePageView)this.pageViews.get(1)).loadData(isRefleshData);
+//        ((TabBasePageView)this.pageViews.get(2)).loadData(isRefleshData);
+//        ((TabBasePageView)this.pageViews.get(3)).loadData(isRefleshData);
+//        ((TabBasePageView)this.pageViews.get(4)).loadData(isRefleshData);
+//        ((TabBasePageView)this.pageViews.get(5)).loadData(isRefleshData);
   
     }
 
     public void moveToNext() {
-    	  Log.d(TAG,"call moveToNext()");
+    	  LogUtils.d("call moveToNext()");
         this.currentIndex = this.addIndex(this.currentIndex + 1);
         int v1 = this.addIndex(this.currentIndex + 1);
         int v2 = this.addIndex(this.currentIndex + 2);

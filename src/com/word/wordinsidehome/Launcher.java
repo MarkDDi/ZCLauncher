@@ -116,10 +116,11 @@ public class Launcher extends Activity implements OnClickListener {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         setContentView(R.layout.activity_main);
         initChildViews();
-        Log.d(TAG, "onCreate()");
+        LogUtils.d( "onCreate()");
         gestureDetector = new GestureDetector(Launcher.this, onGestureListener);
         sharepreference = getSharedPreferences(PREFERENCE_WINSIDE_SETTING, Context.MODE_PRIVATE);
         refleshHandler = new RefleshHandler(this);
+        // 启动服务（数据刷新）
         refleshHandler.startRefleshImmediately();
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_MEDIA_EJECT);
@@ -267,7 +268,7 @@ public class Launcher extends Activity implements OnClickListener {
     }
 
     private void ShowNavigationBar() {
-        Log.d(TAG, "ShowNavigationBar");
+        LogUtils.d( "ShowNavigationBar");
         if ((Navigationbar_show_flag == false)) {
             RelativeLayout_Navigation.startAnimation(showNavigationBarAction);
             RelativeLayout_Navigation.bringToFront();
@@ -339,6 +340,8 @@ public class Launcher extends Activity implements OnClickListener {
         // 由每个不同的内容页去加载自己重写后的loadData
         Launcher.this.matrixPager.loadData(false);
         LauncherEntity launcherEntity = launcherDAO.queryLauncherInfo(null, null, null, null);
+
+        LogUtils.e("查询LauncherInfo : " + launcherEntity);
         if (launcherEntity != null) {
             ImageLoader.getInstance().displayImage(launcherEntity.get_icon(), img_logo, true);
 
@@ -350,7 +353,7 @@ public class Launcher extends Activity implements OnClickListener {
                 String v0;
                 Launcher.this.mCurrentViewIndex = mCurrentIndex;
                 if (3 == mCurrentIndex) {
-                    Log.i("Launcher", "onMatrixPageChangeComplete-->sendBroad");
+                    LogUtils.i("onMatrixPageChangeComplete-->sendBroad");
                     Launcher.this.sendBroadcast(new Intent("com.hiveview.tv.view.hdmiin.small_show"));
                     //   AppScene.setScene("com.hiveview.tv.view.MaxtrTvView");
                     Log.i("Launcher", "onMatrixPageChangeComplete-->end");
@@ -369,7 +372,7 @@ public class Launcher extends Activity implements OnClickListener {
             }
 
             public void onPageChangeStart(int mCurrentIndex) {
-                Log.d(TAG, "===== onPageChangeStart(), mCurrentIndex = " + mCurrentIndex);
+                LogUtils.d( "===== onPageChangeStart(), mCurrentIndex = " + mCurrentIndex);
                 handleSubTab(mCurrentIndex);
                 // Launcher.this.subTabView.setCurrentItem(mCurrentIndex);
             }
@@ -380,7 +383,7 @@ public class Launcher extends Activity implements OnClickListener {
 
             public void onScrollStart(int targetIndex) {
                 if (Launcher.this.matrixPager.getCurrentPageIndex() == Launcher.this.matrixPager.get3DPagerChildCount() - 1 && targetIndex == 0) {
-                    Log.d(TAG, "===== (), moveToNext ");
+                    LogUtils.d("===== (), moveToNext ");
                     Launcher.this.matrixPager.moveToNext();
                     return;
                 }
@@ -397,7 +400,8 @@ public class Launcher extends Activity implements OnClickListener {
                 }
 
                 if (Launcher.this.matrixPager.getCurrentPageIndex() - targetIndex < 0) {
-                    Log.d(TAG, "===== ()6666, getCurrentPageIndex =" + Launcher.this.matrixPager.getCurrentPageIndex() + "targetIndex=" + targetIndex);
+                    LogUtils.d("===== ()6666, getCurrentPageIndex =" + Launcher.this.matrixPager
+                            .getCurrentPageIndex() + "  targetIndex=" + targetIndex);
                     Launcher.this.matrixPager.moveToNext();
                 }
             }
@@ -431,11 +435,11 @@ public class Launcher extends Activity implements OnClickListener {
         boolean v0 = keyCode == KeyEvent.KEYCODE_BACK ? true : super.onKeyDown(keyCode, event);
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_UP:
-                Log.d(TAG, "KEYCODE_DPAD_UP");
+                LogUtils.d( "KEYCODE_DPAD_UP");
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN:
                 //hideNavigationBar();
-                Log.d(TAG, "KEYCODE_DPAD_DOWN");
+                LogUtils.d( "KEYCODE_DPAD_DOWN");
                 break;
 
         }
@@ -465,7 +469,7 @@ public class Launcher extends Activity implements OnClickListener {
             v0 = this.relativeLayout_top_navigation_view.findFocus().getId();
             if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_UP && (v0 == R.id.navigation_tab_health_text || v0 == R.id.navigation_tab_game_text || v0 == R.id.navigation_tab_recommend_text || v0 == R.id.navigation_tab_education_text || v0 == R.id.navigation_tab_movie_text || v0 == R.id.navigation_tab_app_text)) {
                 current_focused_top_navigation_id = v0;
-                Log.d(TAG, "setNextFocusDownId id =" + v0);
+                LogUtils.d( "setNextFocusDownId id =" + v0);
                 ShowNavigationBar();
                 return false;
 
@@ -486,7 +490,7 @@ public class Launcher extends Activity implements OnClickListener {
     }
 
     /* public boolean onTouchEvent(MotionEvent event) {
-             Log.d(TAG,"===== onTouchEvent()" );
+             LogUtils.d("===== onTouchEvent()" );
             return gestureDetector.onTouchEvent(event);
      }  */
     private GestureDetector.OnGestureListener onGestureListener = new SimpleOnGestureListener() {
@@ -497,10 +501,10 @@ public class Launcher extends Activity implements OnClickListener {
 
             if (x > 0) {
                 //  doResult(RIGHT);
-                Log.d(TAG, "===== onGestureListener() right");
+                LogUtils.d( "===== onGestureListener() right");
             } else if (x < 0) {
                 //  doResult(LEFT);
-                Log.d(TAG, "===== onGestureListener() left");
+                LogUtils.d( "===== onGestureListener() left");
             }
             return true;
         }
@@ -509,7 +513,7 @@ public class Launcher extends Activity implements OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        Log.d(TAG, "===== onClick(), id = " + id);
+        LogUtils.d( "===== onClick(), id = " + id);
 
         if (v instanceof RelativeLayout) {
 
@@ -566,7 +570,7 @@ public class Launcher extends Activity implements OnClickListener {
 
     @Override
     protected void onDestroy() {
-        Log.d(TAG, "------onDestroy");
+        LogUtils.d( "------onDestroy");
         unregisterReceiver(mediaReceiver);
         unregisterReceiver(netReceiver);
         unregisterReceiver(dataReceiver);
@@ -602,7 +606,7 @@ public class Launcher extends Activity implements OnClickListener {
             date = mMonth + " " + mDay;
         }
 
-//Log.d(TAG, "@@@@@@@@@@@@@@@@@@@ "+ date  + "week = " +int_Week);
+//LogUtils.d( "@@@@@@@@@@@@@@@@@@@ "+ date  + "week = " +int_Week);
         return date;
     }
 
@@ -637,7 +641,7 @@ public class Launcher extends Activity implements OnClickListener {
     }
 
     private void displayStatus() {
-        Log.d(TAG, "displayStatus is called----------------------------");
+        LogUtils.d( "displayStatus is called----------------------------");
         WifiManager mWifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         WifiInfo mWifiInfo = mWifiManager.getConnectionInfo();
         int wifi_rssi = mWifiInfo.getRssi();
@@ -692,7 +696,7 @@ public class Launcher extends Activity implements OnClickListener {
             //	map.put("item_type", R.drawable.img_status_ethernet);
             img_wifi.setImageResource(R.drawable.img_status_ethernet);
             //	list.add(map);
-            Log.d(TAG, "R.drawable.img_status_ethernet-------------------------------");
+            LogUtils.d( "R.drawable.img_status_ethernet-------------------------------");
         }
 
         return list;
@@ -791,7 +795,7 @@ public class Launcher extends Activity implements OnClickListener {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
 
-            //Log.d(TAG, " mediaReceiver		  action = " + action);
+            //LogUtils.d( " mediaReceiver		  action = " + action);
             if (action == null) return;
 
             if (Intent.ACTION_MEDIA_EJECT.equals(action) || Intent.ACTION_MEDIA_UNMOUNTED.equals(action) || Intent.ACTION_MEDIA_MOUNTED.equals(action)) {
@@ -809,9 +813,9 @@ public class Launcher extends Activity implements OnClickListener {
     };
     private BroadcastReceiver dataReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent mIntent) {
-
+            // 接收LoadService发送过来的广播，在将数据进行持久化后发送
             if (mIntent.getAction().equals("DATA_ACTION")) {
-                Log.d("zzktag", "BroadcastReceiver DATA_ACTION");
+                LogUtils.d("BroadcastReceiver DATA_ACTION");
                 Launcher.this.matrixPager.loadData(true);
                 //load logo
                 LauncherEntity launcherEntity = launcherDAO.queryLauncherInfo(null, null, null, null);
@@ -819,11 +823,11 @@ public class Launcher extends Activity implements OnClickListener {
 
                 if (launcherEntity != null) {
                     String version = sharepreference.getString(WINSIDE_LAUNCHER_VERSION, "null");
-                    Log.d("zzklogo", "launcher version = " + version);
+                    LogUtils.d("launcher version = " + version);
                     LogUtils.e("new versionCode = " + launcherEntity.get_version());
                     // 此处应该是比较版本号大小，后期需要修改服务器发过来的数据
                     if (!version.equals(launcherEntity.get_version()) && shouldShowLauncherUpdateTip) {
-                        Log.d("zzklogo", "launcherEntity = " + launcherEntity);
+                        LogUtils.d("launcherEntity = " + launcherEntity);
                         shouldShowLauncherUpdateTip = false;
                         ImageLoader.getInstance().displayImage(launcherEntity.get_icon(), img_logo, true);
 //                        showLauncherNewVersionDialog(launcherEntity);
@@ -841,7 +845,7 @@ public class Launcher extends Activity implements OnClickListener {
 
             if (action == null) return;
 
-            Log.d(TAG, "netReceiver         action = " + action);
+            LogUtils.d("netReceiver         action = " + action);
 
             // 时间广播，每分钟由系统发出一次
             if (action.equals(Intent.ACTION_TIME_TICK)) {
@@ -857,7 +861,7 @@ public class Launcher extends Activity implements OnClickListener {
             } else if (action.equals(weather_receive_action)) { // 该广播由WeatherBroadCastThread类发出
                 String weatherInfo = intent.getExtras().getString("weather_today");
                 // weatherInfo：深圳,30 ~ 26℃,duoyun
-                Log.d(TAG, "@@@@@@@@@@@@@@@@@@@@@@@@@@ receive " + action + " weather:" + weatherInfo);
+                LogUtils.d( "@@@@@@@@@@@@@@@@@@@@@@@@@@ receive " + action + " weather:" + weatherInfo);
                 setWeatherView(weatherInfo);
             } else {
                 displayStatus();
@@ -1055,7 +1059,7 @@ public class Launcher extends Activity implements OnClickListener {
                 AppStoreApplication.beginNewDownloadThread(miconInfo);
                 //  AppDownloadThread appLoadThread = new AppDownloadThread(mContext,miconInfo);
                 //  appLoadThread.download(miconInfo);
-                //Log.d(TAG,"dialog choise=");
+                //LogUtils.d("dialog choise=");
 
             }
         };

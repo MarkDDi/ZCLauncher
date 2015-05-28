@@ -257,7 +257,7 @@ public class MatrixMovieView extends TabBasePageView {
     public void setMatrixData(boolean isRefleshData) {
         MatrixMovieView.this.movieList = MatrixMovieView.this.movieDAO.queryMatrixMovie(null, null, null, null);
         int v0 = this.movieList.size();
-        Log.d("zzktag", "setMatrixData() called size =" + v0);
+        LogUtils.d("setMatrixData() called size =" + v0);
         RelativeLayout.LayoutParams v7 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
         int v2;
         for (v2 = 0; v2 < v0; ++v2) {

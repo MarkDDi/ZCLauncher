@@ -157,10 +157,10 @@ public class MatrixAppView extends TabBasePageView {
 
         @Override
         public void onClick(View v) {
-            Log.d(TAG, "===== onClick()");
+            LogUtils.d( "===== onClick()");
             doOnClick(v);
     /*	int id = v.getId();
-        Log.d(TAG,"===== onClick(), id = " + id);
+        LogUtils.d("===== onClick(), id = " + id);
 
 
 		 if (id == R.id.matrix_app_layout_0) {
@@ -252,7 +252,7 @@ public class MatrixAppView extends TabBasePageView {
                 if (((AppRecommendView) v8).getTag() != null) {
                     v6 = ((AppRecommendView) v8).getTag();
                 }
-                Log.d("zzktag", "setMatrixData() v6 =" + v6);
+                LogUtils.d("setMatrixData() v6 =" + v6);
                 if (v6 == null || ((IconsEntity) v6).get_appID() != ((IconsEntity) entitys).get_appID() || !((IconsEntity) v6).get_icon().equals(((IconsEntity) entitys).get_icon())) {
                     ((AppRecommendView) v8).setTag(entitys);
                     this.mapDownload.put(((IconsEntity) entitys).get_appName(), v8);
@@ -266,11 +266,11 @@ public class MatrixAppView extends TabBasePageView {
     }
 
     public void doOnClick(View view) {
-        int indet = -1;
+        int index = -1;
         int tmp = 0;
         while (tmp < MatrixAppView.this.appLayouts.length) {
             if (view == MatrixAppView.this.appLayouts[tmp]) {
-                indet = tmp;
+                index = tmp;
             } else {
                 ++tmp;
                 continue;
@@ -278,10 +278,11 @@ public class MatrixAppView extends TabBasePageView {
             break;
         }
 
-        if (indet < 0 || indet >= MatrixAppView.this.flippers.length) {
+        LogUtils.e("点击的index : " + index);
+        if (index < 0 || index >= MatrixAppView.this.flippers.length) {
 
-        } else if (MatrixAppView.this.flippers[indet].getCurrentView() != null && MatrixAppView.this.flippers[indet].getChildCount() != 0) {
-            Object obj = MatrixAppView.this.flippers[indet].getCurrentView().getTag();
+        } else if (MatrixAppView.this.flippers[index].getCurrentView() != null && MatrixAppView.this.flippers[index].getChildCount() != 0) {
+            Object obj = MatrixAppView.this.flippers[index].getCurrentView().getTag();
             if (obj != null) {
 
                 try {
@@ -293,7 +294,7 @@ public class MatrixAppView extends TabBasePageView {
                     mContext.startActivity(startIntent);
                 } catch (Exception v0) {
                     showAppDialog((IconsEntity) obj);
-                    Log.d(TAG, "error= " + v0);
+                    LogUtils.d( "error= " + v0);
                     return;
                 }
 
@@ -321,7 +322,7 @@ public class MatrixAppView extends TabBasePageView {
                 AppStoreApplication.beginNewDownloadThread(miconInfo);
                 //  AppDownloadThread appLoadThread = new AppDownloadThread(mContext,miconInfo);
                 //  appLoadThread.download(miconInfo);
-                //Log.d(TAG,"dialog choise=");
+                //LogUtils.d("dialog choise=");
 
             }
         };
@@ -332,9 +333,9 @@ public class MatrixAppView extends TabBasePageView {
         Object v3;
         IconsEntity appEntityReceiver = (IconsEntity) intent.getSerializableExtra("AppEntity");
         String action = intent.getAction();
-        Log.d("zzkd", "action= " + action);
+        LogUtils.d("action= " + action);
         v3 = this.mapDownload.get(appEntityReceiver.get_appName());
-        Log.d("zzkd", "v3= " + v3);
+        LogUtils.d("v3= " + v3);
         if (v3 == null) {
             return;
         }

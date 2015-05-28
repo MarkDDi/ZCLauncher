@@ -8,6 +8,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo.State;
 import android.util.Log;
 
+import com.word.wordinsidehome.utils.LogUtils;
+
 public class WeatherReceiver extends BroadcastReceiver {
 
 	private static final String TAG = "WeatherReceiver";
@@ -26,7 +28,7 @@ public class WeatherReceiver extends BroadcastReceiver {
 
         //=================for weather 
 		if ("android.windInside.launcher.REQUEST_WEATHER".equals(action)) {
-			Log.d("zzkw","===== receive REQUEST_WEATHER ");
+			LogUtils.d("===== receive REQUEST_WEATHER ");
 			new WeatherBroadcastThread(mContext).start();
 		}
 
@@ -50,7 +52,7 @@ public class WeatherReceiver extends BroadcastReceiver {
 		mobileState = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
         ethState = cm.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET).getState();
 		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null && State.CONNECTED == ethState)) {
-			Log.d(TAG, "wifi connect , send weather info right now !!!");
+			LogUtils.d("wifi connect , send weather info right now !!!");
 			new WeatherBroadcastThread(mContext).start();
 		}
 

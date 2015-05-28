@@ -257,7 +257,7 @@ public class MatrixRecommendView extends TabBasePageView {
     public void setMatrixData(boolean isRefleshData) {
         MatrixRecommendView.this.recommendList = MatrixRecommendView.this.recommendDAO.queryMatrixRecommend(null, null, null, null);
         int v0 = this.recommendList.size();
-        Log.d(TAG, "setMatrixData() called size =" + v0);
+        LogUtils.d("setMatrixData() called size =" + v0);
         RelativeLayout.LayoutParams v7 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
         int v2;
         for (v2 = 0; v2 < v0; ++v2) {
