@@ -45,6 +45,7 @@ import com.word.wordinsidehome.service.RefleshHandler;
 import com.word.wordinsidehome.service.dao.LauncherDAO;
 import com.word.wordinsidehome.service.entity.IconsEntity;
 import com.word.wordinsidehome.service.entity.LauncherEntity;
+import com.word.wordinsidehome.service.image.AppDownloadThread;
 import com.word.wordinsidehome.service.image.ImageLoader;
 import com.word.wordinsidehome.utils.LogUtils;
 import com.word.wordinsidehome.view.LauncerUpdateDialog;
@@ -71,7 +72,8 @@ public class Launcher extends Activity implements OnClickListener {
     public static final String PREFERENCE_WINSIDE_SETTING = "preference_winsideLauncher_settings";
     public static final String WINSIDE_LAUNCHER_VERSION = "winside_launcher_version";
     private static int time_count = 0;
-    private final int time_freq = 10;
+    // 发送天气广播的时间间隔
+    private final int time_freq = 2;
     private RelativeLayout layoutSport;
     private RelativeLayout layoutEducation;
     private RelativeLayout layoutApp;
@@ -116,7 +118,7 @@ public class Launcher extends Activity implements OnClickListener {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         setContentView(R.layout.activity_main);
         initChildViews();
-        LogUtils.d( "onCreate()");
+        LogUtils.d("onCreate()");
         gestureDetector = new GestureDetector(Launcher.this, onGestureListener);
         sharepreference = getSharedPreferences(PREFERENCE_WINSIDE_SETTING, Context.MODE_PRIVATE);
         refleshHandler = new RefleshHandler(this);
@@ -268,7 +270,7 @@ public class Launcher extends Activity implements OnClickListener {
     }
 
     private void ShowNavigationBar() {
-        LogUtils.d( "ShowNavigationBar");
+        LogUtils.d("ShowNavigationBar");
         if ((Navigationbar_show_flag == false)) {
             RelativeLayout_Navigation.startAnimation(showNavigationBarAction);
             RelativeLayout_Navigation.bringToFront();
@@ -372,7 +374,7 @@ public class Launcher extends Activity implements OnClickListener {
             }
 
             public void onPageChangeStart(int mCurrentIndex) {
-                LogUtils.d( "===== onPageChangeStart(), mCurrentIndex = " + mCurrentIndex);
+                LogUtils.d("===== onPageChangeStart(), mCurrentIndex = " + mCurrentIndex);
                 handleSubTab(mCurrentIndex);
                 // Launcher.this.subTabView.setCurrentItem(mCurrentIndex);
             }
@@ -400,8 +402,7 @@ public class Launcher extends Activity implements OnClickListener {
                 }
 
                 if (Launcher.this.matrixPager.getCurrentPageIndex() - targetIndex < 0) {
-                    LogUtils.d("===== ()6666, getCurrentPageIndex =" + Launcher.this.matrixPager
-                            .getCurrentPageIndex() + "  targetIndex=" + targetIndex);
+                    LogUtils.d("===== ()6666, getCurrentPageIndex =" + Launcher.this.matrixPager.getCurrentPageIndex() + "  targetIndex=" + targetIndex);
                     Launcher.this.matrixPager.moveToNext();
                 }
             }
@@ -433,13 +434,17 @@ public class Launcher extends Activity implements OnClickListener {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean v0 = keyCode == KeyEvent.KEYCODE_BACK ? true : super.onKeyDown(keyCode, event);
+        if (v0) {
+            // 测试使用，正式使用删掉
+            finish();
+        }
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_UP:
-                LogUtils.d( "KEYCODE_DPAD_UP");
+                LogUtils.d("KEYCODE_DPAD_UP");
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN:
                 //hideNavigationBar();
-                LogUtils.d( "KEYCODE_DPAD_DOWN");
+                LogUtils.d("KEYCODE_DPAD_DOWN");
                 break;
 
         }
@@ -469,7 +474,7 @@ public class Launcher extends Activity implements OnClickListener {
             v0 = this.relativeLayout_top_navigation_view.findFocus().getId();
             if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_UP && (v0 == R.id.navigation_tab_health_text || v0 == R.id.navigation_tab_game_text || v0 == R.id.navigation_tab_recommend_text || v0 == R.id.navigation_tab_education_text || v0 == R.id.navigation_tab_movie_text || v0 == R.id.navigation_tab_app_text)) {
                 current_focused_top_navigation_id = v0;
-                LogUtils.d( "setNextFocusDownId id =" + v0);
+                LogUtils.d("setNextFocusDownId id =" + v0);
                 ShowNavigationBar();
                 return false;
 
@@ -501,10 +506,10 @@ public class Launcher extends Activity implements OnClickListener {
 
             if (x > 0) {
                 //  doResult(RIGHT);
-                LogUtils.d( "===== onGestureListener() right");
+                LogUtils.d("===== onGestureListener() right");
             } else if (x < 0) {
                 //  doResult(LEFT);
-                LogUtils.d( "===== onGestureListener() left");
+                LogUtils.d("===== onGestureListener() left");
             }
             return true;
         }
@@ -513,7 +518,7 @@ public class Launcher extends Activity implements OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        LogUtils.d( "===== onClick(), id = " + id);
+        LogUtils.d("===== onClick(), id = " + id);
 
         if (v instanceof RelativeLayout) {
 
@@ -570,7 +575,7 @@ public class Launcher extends Activity implements OnClickListener {
 
     @Override
     protected void onDestroy() {
-        LogUtils.d( "------onDestroy");
+        LogUtils.d("------onDestroy");
         unregisterReceiver(mediaReceiver);
         unregisterReceiver(netReceiver);
         unregisterReceiver(dataReceiver);
@@ -641,7 +646,7 @@ public class Launcher extends Activity implements OnClickListener {
     }
 
     private void displayStatus() {
-        LogUtils.d( "displayStatus is called----------------------------");
+        LogUtils.d("displayStatus is called----------------------------");
         WifiManager mWifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         WifiInfo mWifiInfo = mWifiManager.getConnectionInfo();
         int wifi_rssi = mWifiInfo.getRssi();
@@ -696,7 +701,7 @@ public class Launcher extends Activity implements OnClickListener {
             //	map.put("item_type", R.drawable.img_status_ethernet);
             img_wifi.setImageResource(R.drawable.img_status_ethernet);
             //	list.add(map);
-            LogUtils.d( "R.drawable.img_status_ethernet-------------------------------");
+            LogUtils.d("R.drawable.img_status_ethernet-------------------------------");
         }
 
         return list;
@@ -706,12 +711,12 @@ public class Launcher extends Activity implements OnClickListener {
         File dir = new File(USB_PATH);
         if (dir.exists() && dir.isDirectory()) {
             if (dir.listFiles() != null && dir.listFiles().length > 0) {
-                    for (File file : dir.listFiles()) {
-                        String path = file.getAbsolutePath();
-                        if (path.startsWith(USB_PATH + "/sd") && !path.equals(SD_PATH)) {
-                            return true;
-                        }
+                for (File file : dir.listFiles()) {
+                    String path = file.getAbsolutePath();
+                    if (path.startsWith(USB_PATH + "/sd") && !path.equals(SD_PATH)) {
+                        return true;
                     }
+                }
             }
         }
 
@@ -730,15 +735,16 @@ public class Launcher extends Activity implements OnClickListener {
 
     private boolean isEthernetOn() {
         ConnectivityManager connectivity = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-       /* NetworkInfo info = connectivity.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
+        NetworkInfo info = connectivity.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
 
         if (info.isConnected()) {
             return true;
         } else {
             return false;
-        }*/
-        return true;
+        }
     }
+
+    //        return true;
 
     private void setWeatherView(String str_weather) {
         if (str_weather == null || str_weather.length() == 0) {
@@ -861,7 +867,7 @@ public class Launcher extends Activity implements OnClickListener {
             } else if (action.equals(weather_receive_action)) { // 该广播由WeatherBroadCastThread类发出
                 String weatherInfo = intent.getExtras().getString("weather_today");
                 // weatherInfo：深圳,30 ~ 26℃,duoyun
-                LogUtils.d( "@@@@@@@@@@@@@@@@@@@@@@@@@@ receive " + action + " weather:" + weatherInfo);
+                LogUtils.d("@@@@@@@@@@@@@@@@@@@@@@@@@@ receive " + action + " weather:" + weatherInfo);
                 setWeatherView(weatherInfo);
             } else {
                 displayStatus();
@@ -966,7 +972,6 @@ public class Launcher extends Activity implements OnClickListener {
 
         /**
          * 向左滑的时候调用的方法，子类应该重写
-         *
          * @return
          */
         public boolean left() {
@@ -975,7 +980,6 @@ public class Launcher extends Activity implements OnClickListener {
 
         /**
          * 向右滑的时候调用的方法，子类应该重写
-         *
          * @return
          */
         public boolean right() {
@@ -1057,9 +1061,9 @@ public class Launcher extends Activity implements OnClickListener {
             public void onSetPositiveButton() {
 
                 AppStoreApplication.beginNewDownloadThread(miconInfo);
-                //  AppDownloadThread appLoadThread = new AppDownloadThread(mContext,miconInfo);
-                //  appLoadThread.download(miconInfo);
-                //LogUtils.d("dialog choise=");
+                AppDownloadThread appLoadThread = new AppDownloadThread(mContext, miconInfo);
+                appLoadThread.download(miconInfo);
+                LogUtils.d("dialog choise=");
 
             }
         };

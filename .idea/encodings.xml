@@ -1,59 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/AppStoreApplication.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/Launcher.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/LocalAdapter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/MyRelativeLayout.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/Type.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/common/DownloadManager.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/NavigationTabView.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/SubTabView.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/Abstract3DPagerStrategy.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/MatrixRotateYAnimation.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/OnPageViewChangeListener.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/PageChangeAnimationFactory.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/SixPageViewStrategy.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/TabBasePageView.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/customview/pager3d/View3DPager.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/RefleshHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/AppDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/BaseDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/EducationDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/GameDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/HealthDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/LauncherDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/MovieDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/RecommendDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/dao/WordinsideProvider.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/AppEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/EducationEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/GameEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/HealthEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/IconsEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/LauncherEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/MovieEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/RecommendEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/entity/WordinsideBaseEntity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/AjaxCallBack.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/AppDownloadThread.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/AppInstallService.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/EntityCallBack.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/FileEntityHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/FileLoadUtils.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/FinalHttp.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/ImageLoader.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/ImageLoaderEngine.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/LoadAndDisplayImageTask.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/RetryHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/StorageUtils.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/image/StringEntityHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/service/net/HttpTaskManager.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/utils/NetworkUtils.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/view/AppRecommendView.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/view/InstallProgressView.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/weather/HttpDownloader.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/weather/WeatherReceiver.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/word/wordinsidehome/weather/WebServiceUtil.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

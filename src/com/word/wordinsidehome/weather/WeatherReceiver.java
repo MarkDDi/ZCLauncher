@@ -21,12 +21,12 @@ public class WeatherReceiver extends BroadcastReceiver {
 		Log.d(TAG, "==== BootReceiver , action : " + intent.getAction());
 		mContext = context;
 //		sw = (SystemWriteManager) mContext.getSystemService("system_write");
-        String action = intent.getAction();
-		if ("android.intent.action.BOOT_COMPLETED".equals(action)) {			
-    }
-    
+		String action = intent.getAction();
+		if ("android.intent.action.BOOT_COMPLETED".equals(action)) {
+		}
 
-        //=================for weather 
+
+		//=================for weather
 		if ("android.windInside.launcher.REQUEST_WEATHER".equals(action)) {
 			LogUtils.d("===== receive REQUEST_WEATHER ");
 			new WeatherBroadcastThread(mContext).start();
@@ -35,7 +35,7 @@ public class WeatherReceiver extends BroadcastReceiver {
 		if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action)) {
 //            String value = sw.getPropertyString("sys.weather.send", "false");
 //            if("false".equals(value)){
-			      upDateWeather();
+			upDateWeather();
 //            }
 		}
 
@@ -45,21 +45,17 @@ public class WeatherReceiver extends BroadcastReceiver {
 	void upDateWeather() {
 		State wifiState = null;
 		State mobileState = null;
-        State ethState = null;
-		ConnectivityManager cm = (ConnectivityManager) mContext
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		State ethState = null;
+		ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		wifiState = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
 		mobileState = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
-		//TODO 模拟器测试无以太网
-//        ethState = cm.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET).getState();
 
-//		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null && State.CONNECTED == ethState)) {
-		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null)) {
-			LogUtils.d("wifi connect , send weather info right now !!!");
-			new WeatherBroadcastThread(mContext).start();
+		ethState = cm.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET).getState();
+
+		if ((wifiState != null && State.CONNECTED == wifiState) || (ethState != null && State.CONNECTED == ethState)) {
+				LogUtils.d("wifi connect , send weather info right now !!!");
+				new WeatherBroadcastThread(mContext).start();
+			}
+
 		}
-
-	}
-
-
 }
